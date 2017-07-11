@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" ng-app="FormApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container" ng-controller="FormAppController">
+  <div class="row">
+    <div class="col-md-9">
+      <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz
+        orientacyjną wycenę swojego zlecenia.</p>
+      <h2>Wybierz usługę</h2>
+      <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
+        zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3 ewentualne
+        poprawki.</p>
+      <div class="row" ng-show="showServices">
+        <!--po kliknięciu zwinąć pozostałe-->
+        <div class="col-md-4">
+          <p ng-click="toggleServices()">Artykuły poradnikowe</p>
+        </div>
+        <div class="col-md-4">
+          <p>Artykuły informacyjne</p>
+        </div>
+        <div class="col-md-4">
+          <p>Artykuły specjalistyczne</p>
+        </div>
+        <div class="col-md-4">
+          <p>Content reklamowy</p>
+        </div>
+        <div class="col-md-4">
+          <p>Teksty seo</p>
+        </div>
+        <div class="col-md-4">
+          <p>Prowadzenie blogów</p>
+        </div>
+        <div class="col-md-4">
+          <p>Opisy kategori i produktów</p>
+        </div>
+        <div class="col-md-4">
+          <p>Email marketing</p>
+        </div>
+        <div class="col-md-4">
+          <p>Pisanie e-booków</p>
+        </div>
+        <div class="col-md-4">
+          <p>Content na strony WWW</p>
+        </div>
+        <div class="col-md-4">
+          <p>Prowadzenie fanpage</p>
+        </div>
+        <div class="col-md-4">
+          <p>Usługa Indywidualna</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Określ parametry zlecenia</h2>
+          <p>Lorem ipsum dolor constectetur sit amet</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>Ilość znaków w jednym tekście</h2>
+              <input type="number" placeholder="1000">
+            </div>
+            <div class="col-md-4">
+              <h2>
+                Określ skomplikowanie tematyki
+              </h2>
+              <select ng-model="selectedHardness" ng-options="x for x in hardness"></select>
+            </div>
+            <div class="col-md-4">
+              <h2>
+                Dostarczenie materiałów bazowych
+              </h2>
+              <select ng-model="selectedMaterials" ng-options="x for x in materials"></select>
+            </div>
+            <div class="col-md-4">
+              <h2>Czas realizacji</h2>
+              <select ng-model="selectedTime" ng-options="x for x in time"></select>
+            </div>
+            <div class="col-md-4">
+              <h2>Określ branżę</h2>{{selectedTrade.name}}
+              <!--<select ng-model="selectedTrade" ng-options="x for x in trade"></select>-->
+              <select
+                  ng-model="selectedTrade" ng-options="item.name for item in trades">
+
+              </select>
+            </div>
+            <div class="col-md-4">
+              <h2>
+                Wybierz jezyk
+              </h2>
+              <select ng-model="selectedLanguage" ng-options="x for x in language"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Okres współpracy</h2>
+          <p>Decydując się na aktywną współpracę długotrwałą, możesz liczyć na atrakcyjne zniżki cenowe. Sprawdź, jak
+            prezentują się orientacyjne ceny przy współpracy długotrwałej.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">Jednorazowy</div>
+        <div class="col-md-4">Miesięczny</div>
+        <div class="col-md-4">Roczny</div>
+      </div>
+      <div class="row">
+        <h2>Załączniki i uwagi</h2>
+        <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
+          zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3
+          ewentualne poprawki.</p>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">Imię i nazwisko</div>
+        <div class="col-md-4">email</div>
+        <div class="col-md-4">telefon</div>
+      </div>
+      <textarea name="tresc" id="" cols="30" rows="10" ng-model="textInfo"></textarea>
+
+    </div>
+    <!-- col-md-9 -->
+    <div class="col-md-3">
+      <h2>Podsumowanie</h2>
+      <h3>Rodzaj tekstu</h3>
+      Artykuł poradnikowy
+      <h3>Parametry szczegółowe</h3>
+      <h4>Ilość znaków w jednym tekście</h4>
+      {{letterCount}}
+      <h4>Trudność tekstów</h4>
+      {{hardness}}
+      <h4>Materiały</h4>
+      {{materials}}
+      <h2>Cena</h2>
+      <h3>Cena bazowa</h3>
+      {{basePrice}}
+      <h3>Zniżka za okres współpracy</h3>
+      {{discount}}
+      <h2>Sugerowana cena</h2>
+      {{suggestedPrice}}
+    </div>
+  </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
