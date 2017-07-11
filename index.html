@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/stylesheets/screen.css">
 </head>
 <body>
 <div class="container" ng-controller="FormAppController">
@@ -18,42 +19,57 @@
       <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
         zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3 ewentualne
         poprawki.</p>
-      <div class="row" ng-show="showServices">
+      <div class="row text-variables" ng-show="showServices">
         <!--po kliknięciu zwinąć pozostałe-->
-        <div class="col-md-4">
-          <p ng-click="toggleServices()">Artykuły poradnikowe</p>
+        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(15)">
+          <div class="sprite-Image-8 sprite"></div>
+          <p>Artykuły poradnikowe</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(17)">
+          <div class="sprite-Image-9 sprite"></div>
           <p>Artykuły informacyjne</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(30)">
+          <div class="sprite-Image-10 sprite"></div>
           <p>Artykuły specjalistyczne</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite-Image-11 sprite"></div>
           <p>Content reklamowy</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item"  ng-click="setBase(15)">
+          <div class="sprite sprite-Image-12"></div>
           <p>Teksty seo</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite sprite-Image-13"></div>
+          <div class="sprite"></div>
           <p>Prowadzenie blogów</p>
         </div>
-        <div class="col-md-4">
-          <p>Opisy kategori i produktów</p>
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite sprite-Image-14"></div>
+          <p>Opisy kategorii i produktów</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(55)">
+          <div class="sprite sprite-Image-15"></div>
           <p>Email marketing</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(38.8)">
+          <div class="sprite sprite-Image-16"></div>
           <p>Pisanie e-booków</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite sprite-Image-17"></div>
+          <div class="sprite"></div>
           <p>Content na strony WWW</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite sprite-Image-18"></div>
+          <div class="sprite"></div>
           <p>Prowadzenie fanpage</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6 text-variable-item">
+          <div class="sprite sprite-Image-19"></div>
           <p>Usługa Indywidualna</p>
         </div>
       </div>
@@ -64,7 +80,7 @@
           <div class="row">
             <div class="col-md-4">
               <h2>Ilość znaków w jednym tekście</h2>
-              <input type="number" placeholder="1000">
+              <input type="number" placeholder="1000" min="1000" step="500">
             </div>
             <div class="col-md-4">
               <h2>
@@ -83,18 +99,22 @@
               <select ng-model="selectedTime" ng-options="x for x in time"></select>
             </div>
             <div class="col-md-4">
-              <h2>Określ branżę</h2>{{selectedTrade.name}}
+              <h2>Określ branżę</h2>
               <!--<select ng-model="selectedTrade" ng-options="x for x in trade"></select>-->
               <select
-                  ng-model="selectedTrade" ng-options="item.name for item in trades">
-
+                  ng-model="selectedTrade"
+                  ng-options="item.name for item in trades">
               </select>
             </div>
             <div class="col-md-4">
               <h2>
-                Wybierz jezyk
+                Wybierz język
               </h2>
-              <select ng-model="selectedLanguage" ng-options="x for x in language"></select>
+
+              <select
+                  ng-model="selectedLanguage"
+                  ng-options="x for x in language">
+              </select>
             </div>
           </div>
         </div>
@@ -135,14 +155,18 @@
       <h4>Ilość znaków w jednym tekście</h4>
       {{letterCount}}
       <h4>Trudność tekstów</h4>
-      {{hardness}}
+      {{selectedHardness}}
       <h4>Materiały</h4>
-      {{materials}}
+      {{selectedMaterials}}
       <h2>Cena</h2>
-      <h3>Cena bazowa</h3>
-      {{basePrice}}
+      <h3>Stawka bazowa za 1000 znaków</h3>
+      {{base}} zł
       <h3>Zniżka za okres współpracy</h3>
       {{discount}}
+      <h3>Branża</h3>
+      {{selectedTrade.name}}
+      <h3>Język</h3>
+      {{selectedLanguage}}
       <h2>Sugerowana cena</h2>
       {{suggestedPrice}}
     </div>

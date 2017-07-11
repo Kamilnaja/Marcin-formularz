@@ -1,0 +1,92 @@
+.sprite {
+  background-image: url(../../images/backgrounds/spritesheet.png);
+  background-repeat: no-repeat;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sprite-Image-10 {
+  width: 90px;
+  height: 88px;
+  background-position: -2px -2px;
+}
+
+.sprite-Image-11 {
+  width: 94px;
+  height: 84px;
+  background-position: -2px -94px;
+}
+
+.sprite-Image-12 {
+  width: 90px;
+  height: 87px;
+  background-position: -2px -182px;
+}
+
+.sprite-Image-13 {
+  width: 85px;
+  height: 84px;
+  background-position: -2px -273px;
+}
+
+.sprite-Image-14 {
+  width: 84px;
+  height: 88px;
+  background-position: -2px -361px;
+}
+
+.sprite-Image-15 {
+  width: 85px;
+  height: 83px;
+  background-position: -2px -453px;
+}
+
+.sprite-Image-16 {
+  width: 80px;
+  height: 83px;
+  background-position: -2px -540px;
+}
+
+.sprite-Image-17 {
+  width: 90px;
+  height: 79px;
+  background-position: -2px -627px;
+}
+
+.sprite-Image-18 {
+  width: 106px;
+  height: 89px;
+  background-position: -2px -710px;
+}
+
+.sprite-Image-19 {
+  width: 73px;
+  height: 81px;
+  background-position: -2px -803px;
+}
+
+.sprite-Image-8 {
+  width: 106px;
+  height: 89px;
+  background-position: -2px -888px;
+}
+
+.sprite-Image-9 {
+  width: 84px;
+  height: 81px;
+  background-position: -2px -981px;
+}
+
+.text-variables > .col-md-4 {
+  &:nth-child(3n + 1) {
+    clear: both;
+  }
+}
+
+.text-variable-item {
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+  }
+}

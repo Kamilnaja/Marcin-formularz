@@ -7,46 +7,56 @@ angular.module('FormApp', [])
     $scope.time = ["standardowy", "express"];
     $scope.materials = ["tak", "nie"];
     $scope.language = ["Polski", "Rosyjski", "Angielski", "Hiszpański"];
-    $scope.trade = ["Finanse", "Bankowość", "Ubezpieczenia", "Technika", "Przemysł", "Technologie", "Telekomunikacja", "IT", "Budownictwo", "E-commerce", "Marketing", "Lifestyle", "Moda", "Dom i wnętrze", "Żywność i napoje", "Rozrywka", "Rynek dziecięcy", "Transport", "Logistyka", "Motoryzacja"];
-   $scope.trades = [
-     {
-       id: 1, name: "bankowość"
-     },
-     {
-       id: 2, name: "Ubezpieczenia"
-     },
-     {
-       id: 3, name: "Finanse"
-     },
-     {
-       id: 4, name: "Technika"
-     },
-     {
-       id: 5, name: "Przemysł"
-     },
-       {
-       id: 6, name: "Telekomunikacja"
-     } , {
-       id: 7, name: "Technologie"
-     }  ,{
-       id: 8, name: "Przemysł"
-     }  ,{
-       id: 9, name: "Przemysł"
-     }  ,{
-       id: 10, name: "IT"
-     } , {
-       id: 11, name: "Budownictwo"
-     }  ,{
-       id: 12, name: "E-commerce"
-     } , {
-       id: 13, name: "Marketing"
-     },  {
-       id: 14, name: "Lifestyle"
-     }
-   ];
+    $scope.trades = [
+      {
+        id: 1, name: "bankowość"
+      },
+      {
+        id: 2, name: "Ubezpieczenia"
+      },
+      {
+        id: 3, name: "Finanse"
+      },
+      {
+        id: 4, name: "Technika"
+      },
+      {
+        id: 5, name: "Przemysł"
+      },
+      {
+        id: 6, name: "Telekomunikacja"
+      }, {
+        id: 7, name: "Technologie"
+      }, {
+        id: 8, name: "Przemysł"
+      }, {
+        id: 9, name: "Przemysł"
+      }, {
+        id: 10, name: "IT"
+      }, {
+        id: 11, name: "Budownictwo"
+      }, {
+        id: 12, name: "E-commerce"
+      }, {
+        id: 13, name: "Marketing"
+      }, {
+        id: 14, name: "Lifestyle"
+      },
+      {id: 15, name: "moda"},
+      {id: 16, name: "Dom i wnętrze"},
+      {id: 17, name: "Żywność i napoje"},
+      {id: 18, name: "Rozrywka"},
+      {id: 19, name: "Rynek dziecięcy"},
+      {id: 20, name: "Transport"},
+      {id: 21, name: "Logistyka"},
+      {id: 22, name: "Motoryzacja"}
+    ];
+    $scope.base = 10;
+    $scope.setBase = function (number) {
+      $scope.base = number;
+    };
     //todo add more items
     $scope.textInfo = "";
-    $scope.selectedTrade = "";
     $scope.toggleServices = function () {
       if (!$scope.showServices) {
         $scope.showServices = true;
