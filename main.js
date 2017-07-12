@@ -62,24 +62,27 @@ angular.module('FormApp', [])
       {id: 11, name: "Prowadzenie fanpage", price: "",  class: "sprite-Image-18" },
       {id: 12, name: "Usługa indywidualna", price: "",  class: "sprite-Image-19" }];
     //todo wyświetl dane z bazy
+
     //ustala cenę bazową po kliknięciu w item
-    $scope.setBase = function (number) {
+    $scope.setBase = function (number, item) {
       $scope.base = number;
-      console.log(number);
     };
     //ustawia okres współpracy po kliknięciu w item
     $scope.setPeriod = function (number) {
       $scope.period = number;
       console.log(number);
     };
+
     //todo add more items
     $scope.textInfo = "";
+
     $scope.toggleServices = function () {
       if (!$scope.showServices) {
         $scope.showServices = true;
       } else {
         $scope.showServices = false;
       }
-    }
+    };
+
     $scope.filters = {};
   });

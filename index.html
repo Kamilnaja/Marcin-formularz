@@ -15,15 +15,23 @@
     <div class="col-md-9">
       <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz
         orientacyjną wycenę swojego zlecenia.</p>
+      <!--todo - po kliknięciu w item, wyfilitruj go -->
+      <section class="service row">
 
-      <section class="service">
         <div
             class="col-md-4 col-xs-6 text-variable-item"
-            ng-repeat="item in services"
-            ng-click="setBase(item.price)">
-          <div class="sprite {{item.class}}"></div>
-          <p>{{item.name}}</p>
+            ng-repeat="x in services | filter: filters"
+            ng-click="setBase(x.price, item)">
+
+          <div ng-click="filters.class = x.class">
+            <div class="sprite {{x.class}}"></div>
+            <p>{{x.name}}</p>
+          </div>
+
         </div>
+        <button
+            ng-click="filters.class = ''">Clear filter
+        </button>
       </section>
 
       <section class="parameteres">
