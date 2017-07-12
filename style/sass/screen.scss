@@ -10,15 +10,18 @@ h2 {
   font-size: 20px;
   font-weight: bold;
 }
+
 body {
   margin-top: 50px;
 }
+
 .sprite {
   background-image: url(../../images/backgrounds/spritesheet.png);
   background-repeat: no-repeat;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 .sprite-Image-10 {
@@ -97,7 +100,12 @@ body {
   cursor: pointer;
   text-align: center;
   min-height: 130px;
+  border: 1px solid transparent;
   &:hover {
+    border: 1px solid orange;
+  }
+  &:active {
+    border: 1px solid red;
   }
 }
 
@@ -132,7 +140,7 @@ input {
   height: 30px;
   border: 1px solid orange;
   padding: 10px;
-    @media(min-width: 992px) {
+  @media(min-width: 992px) {
     width: 100%;
   }
 }
@@ -151,7 +159,7 @@ input {
 
 .spacer {
   @media(min-width: 992px) {
-   height: 30px;
+    height: 30px;
   }
   height: 15px;
   width: 100%;
