@@ -52,8 +52,16 @@ angular.module('FormApp', [])
       {id: 22, name: "Motoryzacja"}
     ];
     $scope.base = 10;
+    //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (number) {
       $scope.base = number;
+      console.log(number);
+
+    };
+    //ustawia okres współpracy po kliknięciu w item
+    $scope.setPeriod = function (number) {
+      $scope.period = number;
+      console.log(number);
     };
     //todo add more items
     $scope.textInfo = "";

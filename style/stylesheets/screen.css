@@ -1,4 +1,22 @@
-/* line 1, ../sass/screen.scss */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext");
+/* line 4, ../sass/screen.scss */
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+}
+
+/* line 9, ../sass/screen.scss */
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 13, ../sass/screen.scss */
+body {
+  margin-top: 50px;
+}
+
+/* line 16, ../sass/screen.scss */
 .sprite {
   background-image: url(../../images/backgrounds/spritesheet.png);
   background-repeat: no-repeat;
@@ -7,97 +25,166 @@
   margin-right: auto;
 }
 
-/* line 9, ../sass/screen.scss */
+/* line 24, ../sass/screen.scss */
 .sprite-Image-10 {
   width: 90px;
   height: 88px;
   background-position: -2px -2px;
 }
 
-/* line 15, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 .sprite-Image-11 {
   width: 94px;
   height: 84px;
   background-position: -2px -94px;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 .sprite-Image-12 {
   width: 90px;
   height: 87px;
   background-position: -2px -182px;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 .sprite-Image-13 {
   width: 85px;
   height: 84px;
   background-position: -2px -273px;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 .sprite-Image-14 {
   width: 84px;
   height: 88px;
   background-position: -2px -361px;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 .sprite-Image-15 {
   width: 85px;
   height: 83px;
   background-position: -2px -453px;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 .sprite-Image-16 {
   width: 80px;
   height: 83px;
   background-position: -2px -540px;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 .sprite-Image-17 {
   width: 90px;
   height: 79px;
   background-position: -2px -627px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 .sprite-Image-18 {
   width: 106px;
   height: 89px;
   background-position: -2px -710px;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 .sprite-Image-19 {
   width: 73px;
   height: 81px;
   background-position: -2px -803px;
 }
 
-/* line 69, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .sprite-Image-8 {
   width: 106px;
   height: 89px;
   background-position: -2px -888px;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .sprite-Image-9 {
   width: 84px;
   height: 81px;
   background-position: -2px -981px;
 }
 
-/* line 82, ../sass/screen.scss */
-.text-variables > .col-md-4:nth-child(3n + 1) {
-  clear: both;
-}
-
-/* line 87, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .text-variable-item {
   cursor: pointer;
   text-align: center;
+  min-height: 130px;
+}
+
+/* line 104, ../sass/screen.scss */
+.period {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid orange;
+  cursor: pointer;
+}
+/* line 112, ../sass/screen.scss */
+.period:hover {
+  background-color: orange;
+}
+
+/* line 118, ../sass/screen.scss */
+section {
+  margin-top: 50px;
+}
+
+/* line 122, ../sass/screen.scss */
+select {
+  border: 1px solid orange;
+  min-width: 150px;
+  height: 30px;
+}
+@media (min-width: 992px) {
+  /* line 122, ../sass/screen.scss */
+  select {
+    width: 100%;
+  }
+}
+
+/* line 131, ../sass/screen.scss */
+input {
+  height: 30px;
+  border: 1px solid orange;
+  padding: 10px;
+}
+@media (min-width: 992px) {
+  /* line 131, ../sass/screen.scss */
+  input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 141, ../sass/screen.scss */
+  .text-variable-item:nth-child(3n + 1) {
+    clear: left;
+  }
+}
+@media (max-width: 450px) {
+  /* line 147, ../sass/screen.scss */
+  .text-variable-item:nth-child(2n + 1) {
+    clear: left;
+  }
+}
+/* line 152, ../sass/screen.scss */
+.spacer {
+  height: 15px;
+  width: 100%;
+  content: "";
+  display: block;
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  /* line 152, ../sass/screen.scss */
+  .spacer {
+    height: 30px;
+  }
 }

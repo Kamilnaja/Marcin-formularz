@@ -15,139 +15,167 @@
     <div class="col-md-9">
       <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz
         orientacyjną wycenę swojego zlecenia.</p>
-      <h2>Wybierz usługę</h2>
-      <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
-        zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3 ewentualne
-        poprawki.</p>
-      <div class="row text-variables" ng-show="showServices">
-        <!--po kliknięciu zwinąć pozostałe-->
-        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(15)">
-          <div class="sprite-Image-8 sprite"></div>
-          <p>Artykuły poradnikowe</p>
+      <section class="service">
+        <h2>Wybierz usługę</h2>
+        <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
+          zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3
+          ewentualne
+          poprawki.</p>
+        <div class="row" ng-show="showServices">
+          <!--po kliknięciu zwinąć pozostałe-->
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(15)">
+            <div class="sprite-Image-8 sprite"></div>
+            <p>Artykuły poradnikowe</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(17)">
+            <div class="sprite-Image-9 sprite"></div>
+            <p>Artykuły informacyjne</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(30)">
+            <div class="sprite-Image-10 sprite"></div>
+            <p>Artykuły specjalistyczne</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite-Image-11 sprite"></div>
+            <p>Content reklamowy</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(15)">
+            <div class="sprite sprite-Image-12"></div>
+            <p>Teksty seo</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite sprite-Image-13"></div>
+            <div class="sprite"></div>
+            <p>Prowadzenie blogów</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite sprite-Image-14"></div>
+            <p>Opisy kategorii i produktów</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(55)">
+            <div class="sprite sprite-Image-15"></div>
+            <p>Email marketing</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(38.8)">
+            <div class="sprite sprite-Image-16"></div>
+            <p>Pisanie e-booków</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite sprite-Image-17"></div>
+            <div class="sprite"></div>
+            <p>Content na strony WWW</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite sprite-Image-18"></div>
+            <div class="sprite"></div>
+            <p>Prowadzenie fanpage</p>
+          </div>
+          <div class="col-md-4 col-xs-6 text-variable-item">
+            <div class="sprite sprite-Image-19"></div>
+            <p>Usługa Indywidualna</p>
+          </div>
         </div>
-        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(17)">
-          <div class="sprite-Image-9 sprite"></div>
-          <p>Artykuły informacyjne</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(30)">
-          <div class="sprite-Image-10 sprite"></div>
-          <p>Artykuły specjalistyczne</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite-Image-11 sprite"></div>
-          <p>Content reklamowy</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item"  ng-click="setBase(15)">
-          <div class="sprite sprite-Image-12"></div>
-          <p>Teksty seo</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite sprite-Image-13"></div>
-          <div class="sprite"></div>
-          <p>Prowadzenie blogów</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite sprite-Image-14"></div>
-          <p>Opisy kategorii i produktów</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(55)">
-          <div class="sprite sprite-Image-15"></div>
-          <p>Email marketing</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item" ng-click="setBase(38.8)">
-          <div class="sprite sprite-Image-16"></div>
-          <p>Pisanie e-booków</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite sprite-Image-17"></div>
-          <div class="sprite"></div>
-          <p>Content na strony WWW</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite sprite-Image-18"></div>
-          <div class="sprite"></div>
-          <p>Prowadzenie fanpage</p>
-        </div>
-        <div class="col-md-4 col-xs-6 text-variable-item">
-          <div class="sprite sprite-Image-19"></div>
-          <p>Usługa Indywidualna</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Określ parametry zlecenia</h2>
-          <p>Lorem ipsum dolor constectetur sit amet</p>
-          <div class="row">
-            <div class="col-md-4">
-              <h2>Ilość znaków w jednym tekście</h2>
-              <input type="number" placeholder="1000" min="1000" step="500">
-            </div>
-            <div class="col-md-4">
-              <h2>
-                Określ skomplikowanie tematyki
-              </h2>
-              <select ng-model="selectedHardness" ng-options="x for x in hardness"></select>
-            </div>
-            <div class="col-md-4">
-              <h2>
-                Dostarczenie materiałów bazowych
-              </h2>
-              <select ng-model="selectedMaterials" ng-options="x for x in materials"></select>
-            </div>
-            <div class="col-md-4">
-              <h2>Czas realizacji</h2>
-              <select ng-model="selectedTime" ng-options="x for x in time"></select>
-            </div>
-            <div class="col-md-4">
-              <h2>Określ branżę</h2>
-              <!--<select ng-model="selectedTrade" ng-options="x for x in trade"></select>-->
-              <select
-                  ng-model="selectedTrade"
-                  ng-options="item.name for item in trades">
-              </select>
-            </div>
-            <div class="col-md-4">
-              <h2>
-                Wybierz język
-              </h2>
+      </section>
+      <section class="parameteres">
 
-              <select
-                  ng-model="selectedLanguage"
-                  ng-options="x for x in language">
-              </select>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Określ parametry zlecenia</h2>
+            <p>Lorem ipsum dolor constectetur sit amet</p>
+            <div class="row">
+              <div class="col-md-4 text-center">
+                <p>Ilość znaków w jednym tekście</p>
+                <input type="number" placeholder="1000" min="1000" step="500">
+              </div>
+              <div class="col-md-4 text-center">
+                <p>
+                  Określ skomplikowanie tematyki
+                </p>
+                <select ng-model="selectedHardness" ng-options="x for x in hardness"></select>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>
+                  Dostarczenie materiałów bazowych
+                </p>
+                <select ng-model="selectedMaterials" ng-options="x for x in materials"></select>
+              </div>
+              <div class="spacer"></div>
+              <div class="col-md-4 text-center">
+                <p>Czas realizacji</p>
+                <select ng-model="selectedTime" ng-options="x for x in time"></select>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>Określ branżę</p>
+                <!--<select ng-model="selectedTrade" ng-options="x for x in trade"></select>-->
+                <select
+                    ng-model="selectedTrade"
+                    ng-options="item.name for item in trades">
+                </select>
+              </div>
+              <div class="col-md-4 text-center">
+                <p>
+                  Wybierz język
+                </p>
+
+                <select
+                    ng-model="selectedLanguage"
+                    ng-options="x for x in language">
+                </select>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Okres współpracy</h2>
-          <p>Decydując się na aktywną współpracę długotrwałą, możesz liczyć na atrakcyjne zniżki cenowe. Sprawdź, jak
-            prezentują się orientacyjne ceny przy współpracy długotrwałej.</p>
+      </section>
+      <section class="how-long">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Okres współpracy</h2>
+            <p>Decydując się na aktywną współpracę długotrwałą, możesz liczyć na atrakcyjne zniżki cenowe. Sprawdź, jak
+              prezentują się orientacyjne ceny przy współpracy długotrwałej.</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">Jednorazowy</div>
-        <div class="col-md-4">Miesięczny</div>
-        <div class="col-md-4">Roczny</div>
-      </div>
-      <div class="row">
-        <h2>Załączniki i uwagi</h2>
-        <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za poszczególne
-          zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3
-          ewentualne poprawki.</p>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="period" ng-click="setPeriod(1)">Jednorazowy</div>
+          </div>
+          <div class="col-md-4">
+            <div class="period" ng-click="setPeriod(2)">
+              Miesięczny
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="period" ng-click="setPeriod(3)">
+              Roczny
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="others">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Załączniki i uwagi</h2>
+          </div>
+          <div class="col-md-12">
+            <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za
+              poszczególne
+              zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3
+              ewentualne poprawki.</p>
+          </div>
 
-      </div>
-      <div class="row">
-        <div class="col-md-4">Imię i nazwisko</div>
-        <div class="col-md-4">email</div>
-        <div class="col-md-4">telefon</div>
-      </div>
-      <textarea name="tresc" id="" cols="30" rows="10" ng-model="textInfo"></textarea>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">Imię i nazwisko</div>
+          <div class="col-md-4">email</div>
+          <div class="col-md-4">telefon</div>
+        </div>
+        <textarea name="tresc" id="" cols="30" rows="10" ng-model="textInfo"></textarea>
 
     </div>
+    </section>
     <!-- col-md-9 -->
-    <div class="col-md-3">
+    <div class="col-md-3" style="position: fixed; right: 0;">
       <h2>Podsumowanie</h2>
       <h3>Rodzaj tekstu</h3>
       Artykuł poradnikowy
