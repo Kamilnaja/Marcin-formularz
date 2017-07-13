@@ -66,8 +66,9 @@ angular.module('FormApp', [])
     $scope.showClearFilter = false;
 
     //ustala cenę bazową po kliknięciu w item
-    $scope.setBase = function (number, item) {
+    $scope.setBase = function (number, item, itemName) {
       $scope.base = number;
+      $scope.selectedItem = itemName;
       //pokaż button, po wybraniu jakiegoś itema
       $scope.showClearFilterButton();
 
@@ -96,4 +97,23 @@ angular.module('FormApp', [])
     };
 
     $scope.filters = {};
+    $scope.showParameters = true;
+
+    //toggle parameters
+    $scope.checkParameters = function () {
+      if (
+        $scope.selectedHardness &&
+        $scope.selectedMaterials &&
+        $scope.selectedTime &&
+        $scope.selectedTrade &&
+        $scope.selectedLanguage) {
+        console.log("all selected");
+        $scope.showParameters = false;
+      } else {
+        console.log("not all");
+      }
+    }
+
   });
+
+//todo - parametry zlecenia - gdy wszystkie sa wybrane, showaj sekcję

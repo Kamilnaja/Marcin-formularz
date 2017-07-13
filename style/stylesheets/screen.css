@@ -125,7 +125,14 @@ body {
   border: 1px solid red;
 }
 
-/* line 112, ../sass/screen.scss */
+@media (max-width: 768px) {
+  /* line 112, ../sass/screen.scss */
+  .parameters input, .parameters select, .personal-data input, .personal-data select {
+    width: 100%;
+  }
+}
+
+/* line 118, ../sass/screen.scss */
 .period {
   width: 100%;
   height: 200px;
@@ -134,56 +141,58 @@ body {
   align-items: center;
   border: 2px solid orange;
   cursor: pointer;
+  margin-top: 15px;
 }
-/* line 120, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 .period:hover {
   background-color: orange;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
 section {
   margin-top: 50px;
+  overflow: hidden;
 }
 
-/* line 130, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 select {
   border: 1px solid orange;
   min-width: 150px;
   height: 30px;
 }
 @media (min-width: 992px) {
-  /* line 130, ../sass/screen.scss */
+  /* line 138, ../sass/screen.scss */
   select {
     width: 100%;
   }
 }
 
-/* line 139, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 input {
   height: 30px;
   border: 1px solid orange;
   padding: 10px;
 }
 @media (min-width: 992px) {
-  /* line 139, ../sass/screen.scss */
+  /* line 147, ../sass/screen.scss */
   input {
     width: 100%;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 149, ../sass/screen.scss */
+  /* line 157, ../sass/screen.scss */
   .text-variable-item:nth-child(3n + 1) {
     clear: left;
   }
 }
 @media (max-width: 450px) {
-  /* line 155, ../sass/screen.scss */
+  /* line 163, ../sass/screen.scss */
   .text-variable-item:nth-child(2n + 1) {
     clear: left;
   }
 }
-/* line 160, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 .spacer {
   height: 15px;
   width: 100%;
@@ -192,53 +201,53 @@ input {
   overflow: hidden;
 }
 @media (min-width: 992px) {
-  /* line 160, ../sass/screen.scss */
+  /* line 168, ../sass/screen.scss */
   .spacer {
     height: 30px;
   }
 }
 
-/* line 171, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .clear-filter {
   clear: both;
   max-width: 200px;
 }
 
-/* line 176, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 .clear-filter-wrap {
   clear: both;
   padding-left: 15px;
 }
 
-/* line 182, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .personal-data textarea {
   border: 2px solid lightgrey;
   margin-top: 15px;
   width: 100%;
   background-color: #e5e5e5;
 }
-/* line 188, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .personal-data input {
   border: 2px solid lightgrey;
   background-color: #e5e5e5;
 }
 
 @media (min-width: 992px) {
-  /* line 196, ../sass/screen.scss */
+  /* line 204, ../sass/screen.scss */
   .sidebar {
     position: fixed;
     right: 0;
   }
 }
-/* line 202, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 .submit-section {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-/* line 207, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 .btn-blue-reversed {
-  border: 2px solid #1B3F93;
+  border: 1px solid #1B3F93;
   color: #1B3F93 !important;
   background-color: white;
   width: 100%;
@@ -249,14 +258,14 @@ input {
   padding-bottom: 5px;
   transition: 0.3s ease;
 }
-/* line 218, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .btn-blue-reversed:hover {
-  border: 2px solid #1B3F93;
+  border: 1px solid #1B3F93;
   background-color: #1B3F93;
   color: white !important;
 }
 
-/* line 227, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .btn-blue-standard {
   width: 100%;
   -webkit-border-radius: 0;
@@ -264,21 +273,21 @@ input {
   border-radius: 0;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: 2px solid #1B3F93;
+  border: 1px solid #1B3F93;
   background-color: #1B3F93;
   color: white !important;
   transition: 0.3s ease;
 }
-/* line 239, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .btn-blue-standard:hover {
-  border: 2px solid #1B3F93;
+  border: 1px solid #1B3F93;
   color: #1B3F93 !important;
   background-color: white;
 }
 
-/* line 246, ../sass/screen.scss */
+/* line 252, ../sass/screen.scss */
 .btn-orange-reversed {
-  border: 2px solid orange;
+  border: 1px solid orange;
   color: orange !important;
   background-color: white;
   width: 100%;
@@ -289,9 +298,64 @@ input {
   padding-bottom: 5px;
   transition: 0.3s ease;
 }
-/* line 257, ../sass/screen.scss */
+/* line 263, ../sass/screen.scss */
 .btn-orange-reversed:hover {
-  border: 2px solid orange;
+  border: 1px solid orange;
   background-color: orange;
   color: white !important;
+}
+
+/* line 270, ../sass/screen.scss */
+.header-info {
+  position: relative;
+}
+
+/* line 274, ../sass/screen.scss */
+.header-info-after {
+  height: 2px;
+  background-color: orange;
+  width: 65%;
+  vertical-align: middle;
+  float: right;
+  margin-top: 11px;
+}
+@media (max-width: 772px) {
+  /* line 274, ../sass/screen.scss */
+  .header-info-after {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* line 288, ../sass/screen.scss */
+  .submit-section .col-md-4 {
+    margin-bottom: 10px;
+  }
+}
+
+/* line 294, ../sass/screen.scss */
+.sidebar {
+  border: 1px solid #1B3F93;
+  padding-bottom: 50px;
+}
+/* line 297, ../sass/screen.scss */
+.sidebar h3 {
+  font-size: 17px;
+  font-weight: bold;
+}
+/* line 301, ../sass/screen.scss */
+.sidebar h4 {
+  font-size: 16px;
+  font-weight: normal;
+}
+/* line 305, ../sass/screen.scss */
+.sidebar .value {
+  color: #1B3F93;
+  min-height: 15px;
+}
+
+/* line 311, ../sass/screen.scss */
+.centered {
+  text-align: center;
 }

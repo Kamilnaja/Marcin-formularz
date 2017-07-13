@@ -15,13 +15,16 @@
     <div class="col-md-9">
       <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz
         orientacyjną wycenę swojego zlecenia.</p>
+      <h2 class="header-info">Wybierz usługę
+        <div class="header-info-after"></div>
+      </h2>
       <!--todo - po kliknięciu w item, wyfilitruj go -->
       <section class="service row">
         <!-- wyświetl itemy (filtrowanie po nazwie kategorii)-->
         <div
             class="col-md-4 col-xs-6 text-variable-item"
             ng-repeat="x in services | filter: filters"
-            ng-click="setBase(x.price, item)">
+            ng-click="setBase(x.price, item, x.name)">
           <!--po kliknięciu ustawia filtr na klasę itemu i filtruje-->
           <div ng-click="filters.class = x.class">
             <div class="sprite {{x.class}}"></div>
@@ -32,19 +35,21 @@
         <div class="clear-filter-wrap" ng-show=showClearFilter>
           <button
               ng-click="filters.class = ''; hideClearFilterButton()"
-              class="clear-filter btn btn-blue-reversed">Clear filter
+              class="clear-filter btn btn-blue-reversed">Wyczyść
           </button>
         </div>
       </section>
 
-      <section class="parameteres">
+      <section class="parameters">
         <div class="row">
           <div class="col-md-12">
-            <h2>Określ parametry zlecenia</h2>
+            <h2 class="header-info">Określ parametry zlecenia
+              <div class="header-info-after"></div>
+            </h2>
             <p>Lorem ipsum dolor constectetur sit amet</p>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show=showParameters>
           <div class="col-md-4">
             <p>Ilość znaków w jednym tekście</p>
             <input type="number" placeholder="1000" min="1000" step="500">
@@ -53,24 +58,33 @@
             <p>
               Określ skomplikowanie tematyki
             </p>
-            <select ng-model="selectedHardness" ng-options="x for x in hardness"></select>
+            <select
+                ng-model="selectedHardness"
+                ng-options="x for x in hardness"
+                ng-change="checkParameters()"></select>
           </div>
           <div class="col-md-4">
             <p>
               Dostarczenie materiałów bazowych
             </p>
-            <select ng-model="selectedMaterials" ng-options="x for x in materials"></select>
+            <select
+                ng-model="selectedMaterials"
+                ng-options="x for x in materials"
+                ng-change="checkParameters()"></select>
           </div>
           <div class="spacer"></div>
           <div class="col-md-4">
             <p>Czas realizacji</p>
-            <select ng-model="selectedTime" ng-options="x for x in time"></select>
+            <select ng-model="selectedTime"
+                    ng-options="x for x in time"
+                    ng-change="checkParameters()"></select>
           </div>
           <div class="col-md-4">
             <p>Określ branżę</p>
             <select
                 ng-model="selectedTrade"
-                ng-options="item.name for item in trades">
+                ng-options="item.name for item in trades"
+                ng-change="checkParameters()">
             </select>
           </div>
           <div class="col-md-4">
@@ -79,7 +93,8 @@
             </p>
             <select
                 ng-model="selectedLanguage"
-                ng-options="x for x in language">
+                ng-options="x for x in language"
+                ng-change="checkParameters()">
             </select>
           </div>
         </div>
@@ -88,21 +103,23 @@
       <section class="how-long">
         <div class="row">
           <div class="col-md-12">
-            <h2>Okres współpracy</h2>
+            <h2 class="header-info">Okres współpracy
+              <div class="header-info-after"></div>
+            </h2>
             <p>Decydując się na aktywną współpracę długotrwałą, możesz liczyć na atrakcyjne zniżki cenowe. Sprawdź, jak
               prezentują się orientacyjne ceny przy współpracy długotrwałej.</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6 col-md-offset-3">
             <div class="period" ng-click="setPeriod(1)">Jednorazowy</div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6 col-md-offset-3">
             <div class="period" ng-click="setPeriod(2)">
               Miesięczny
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6 col-md-offset-3">
             <div class="period" ng-click="setPeriod(3)">
               Roczny
             </div>
@@ -113,7 +130,9 @@
       <section class="personal-data">
         <div class="row">
           <div class="col-md-12">
-            <h2>Załączniki i uwagi</h2>
+            <h2 class="header-info">Załączniki i uwagi
+              <div class="header-info-after"></div>
+            </h2>
           </div>
           <div class="col-md-12">
             <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za
@@ -145,13 +164,13 @@
           </div>
         </div>
         <div class="row submit-section">
-          <div class="col-md-4">
+          <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
             <button class="btn btn-blue-reversed">Pobierz brief</button>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
             <button class="btn btn-blue-standard">Dodaj załącznik</button>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
             <button class="btn btn-orange-reversed ">Szczegółowa wycena</button>
           </div>
         </div>
@@ -159,31 +178,40 @@
 
     </div><!-- col-md-9 -->
     <div class="col-md-3 sidebar">
-      <h2>Podsumowanie</h2>
+      <h2 class="centered">Podsumowanie</h2>
       <h3>Rodzaj tekstu</h3>
-      Artykuł poradnikowy
+      <p class="value centered">
+        {{selectedItem}}
+      </p>
       <h3>Parametry szczegółowe</h3>
-      <h4>Ilość znaków w jednym tekście</h4>
-      {{letterCount}}
-      <h4>Trudność tekstów</h4>
-      {{selectedHardness}}
-      <h4>Materiały</h4>
-      {{selectedMaterials}}
+      <h4 class="centered">Ilość znaków w jednym tekście</h4>
+      <div class="value centered">
+        {{letterCount}}
+      </div>
+      <h4 class="centered">Trudność tekstów</h4>
+      <div class="value centered">
+        {{selectedHardness}}
+      </div>
+      <h4 class=" centered">Materiały</h4>
+      <div class="value centered">
+        {{selectedMaterials}}
+      </div>
       <h2>Cena</h2>
-      <h3>Stawka bazowa za 1000 znaków</h3>
-      {{base}} zł
-      <h3>Zniżka za okres współpracy</h3>
-      {{discount}}
-      <h3>Branża</h3>
-      {{selectedTrade.name}}
-      <h3>Język</h3>
-      {{selectedLanguage}}
+      <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
+      <div class="value centered">
+        {{base}} zł
+      </div>
+      <h3 class=" centered">Zniżka za okres współpracy</h3>
+      <div class="value centered">
+        {{discount}}
+      </div>
       <h2>Sugerowana cena</h2>
       {{suggestedPrice}}
     </div>
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+
 <script src="main.js"></script>
 </body>
 </html>

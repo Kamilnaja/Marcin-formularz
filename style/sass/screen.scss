@@ -108,7 +108,13 @@ body {
     border: 1px solid red;
   }
 }
-
+.parameters, .personal-data {
+  input, select {
+    @media(max-width: 768px) {
+    width: 100%;
+    }
+  }
+}
 .period {
   width: 100%;
   height: 200px;
@@ -117,6 +123,7 @@ body {
   align-items: center;
   border: 2px solid orange;
   cursor: pointer;
+  margin-top: 15px;
   &:hover {
     background-color: orange;
   }
@@ -125,6 +132,7 @@ body {
 //forms
 section {
   margin-top: 50px;
+  overflow: hidden;
 }
 
 select {
@@ -205,7 +213,7 @@ input {
 }
 
 .btn-blue-reversed {
-  border: 2px solid #1B3F93;
+  border: 1px solid #1B3F93;
   color: #1B3F93 !important;
   background-color: white;
   width: 100%;
@@ -216,35 +224,33 @@ input {
   padding-bottom: 5px;
   transition: 0.3s ease;
   &:hover {
-    border: 2px solid #1B3F93;
+    border: 1px solid #1B3F93;
     background-color: #1B3F93;
     color: white !important;
   }
 }
 
-
-
 .btn-blue-standard {
-    width: 100%;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: 2px solid #1B3F93;
-    background-color: #1B3F93;
-    color: white !important;
-    transition: 0.3s ease;
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid #1B3F93;
+  background-color: #1B3F93;
+  color: white !important;
+  transition: 0.3s ease;
 
-    &:hover {
-      border: 2px solid #1B3F93;
-      color: #1B3F93 !important;
-      background-color: white;
-    }
+  &:hover {
+    border: 1px solid #1B3F93;
+    color: #1B3F93 !important;
+    background-color: white;
+  }
 }
 
 .btn-orange-reversed {
-  border: 2px solid orange;
+  border: 1px solid orange;
   color: orange !important;
   background-color: white;
   width: 100%;
@@ -255,8 +261,53 @@ input {
   padding-bottom: 5px;
   transition: 0.3s ease;
   &:hover {
-    border: 2px solid orange;
+    border: 1px solid orange;
     background-color: orange;
     color: white !important;
   }
+}
+
+.header-info {
+  position: relative;
+}
+
+.header-info-after {
+  height: 2px;
+  background-color: orange;
+  width: 65%;
+  vertical-align: middle;
+  float: right;
+  margin-top: 11px;
+
+  @media(max-width: 772px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.submit-section .col-md-4 {
+  @media(max-width: 992px) {
+    margin-bottom: 10px;
+  }
+}
+
+.sidebar {
+  border: 1px solid #1B3F93;
+  padding-bottom: 50px;
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .value {
+    color: #1B3F93;
+    min-height: 15px;
+  }
+}
+
+.centered {
+  text-align: center;
 }
