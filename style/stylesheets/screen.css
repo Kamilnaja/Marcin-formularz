@@ -197,3 +197,101 @@ input {
     height: 30px;
   }
 }
+
+/* line 171, ../sass/screen.scss */
+.clear-filter {
+  clear: both;
+  max-width: 200px;
+}
+
+/* line 176, ../sass/screen.scss */
+.clear-filter-wrap {
+  clear: both;
+  padding-left: 15px;
+}
+
+/* line 182, ../sass/screen.scss */
+.personal-data textarea {
+  border: 2px solid lightgrey;
+  margin-top: 15px;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+/* line 188, ../sass/screen.scss */
+.personal-data input {
+  border: 2px solid lightgrey;
+  background-color: #e5e5e5;
+}
+
+@media (min-width: 992px) {
+  /* line 196, ../sass/screen.scss */
+  .sidebar {
+    position: fixed;
+    right: 0;
+  }
+}
+/* line 202, ../sass/screen.scss */
+.submit-section {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 207, ../sass/screen.scss */
+.btn-blue-reversed {
+  border: 2px solid #1B3F93;
+  color: #1B3F93 !important;
+  background-color: white;
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: 0.3s ease;
+}
+/* line 218, ../sass/screen.scss */
+.btn-blue-reversed:hover {
+  border: 2px solid #1B3F93;
+  background-color: #1B3F93;
+  color: white !important;
+}
+
+/* line 227, ../sass/screen.scss */
+.btn-blue-standard {
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #1B3F93;
+  background-color: #1B3F93;
+  color: white !important;
+  transition: 0.3s ease;
+}
+/* line 239, ../sass/screen.scss */
+.btn-blue-standard:hover {
+  border: 2px solid #1B3F93;
+  color: #1B3F93 !important;
+  background-color: white;
+}
+
+/* line 246, ../sass/screen.scss */
+.btn-orange-reversed {
+  border: 2px solid orange;
+  color: orange !important;
+  background-color: white;
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: 0.3s ease;
+}
+/* line 257, ../sass/screen.scss */
+.btn-orange-reversed:hover {
+  border: 2px solid orange;
+  background-color: orange;
+  color: white !important;
+}

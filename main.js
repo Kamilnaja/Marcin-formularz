@@ -48,24 +48,35 @@ angular.module('FormApp', [])
       {id: 22, name: "Motoryzacja"}
     ];
     $scope.base = 10;
+    //price - ustaw stawkę za 1000 znaków dla kategorii
     $scope.services = [
-      {id: 1, name: "artykuły poradnikowe", price: 10, class: "sprite-Image-8" },
-      {id: 2, name: "artykuły informacyjne", price: 17, class: "sprite-Image-9" },
-      {id: 3, name: "artykuły specjalistyczne", price: 30, class: "sprite-Image-10" },
-      {id: 4, name: "content reklamowy", price: 0, class: "sprite-Image-11" },
-      {id: 5, name: "teksty seo", price: 15, class: "sprite-Image-12" },
-      {id: 6, name: "prowadzenie blogów", price: "", class: "sprite-Image-13" },
-      {id: 7, name: "opisy kategorii i produktów", price: "",  class: "sprite-Image-14" },
-      {id: 8, name: "Email marketing", price: 55,  class: "sprite-Image-15"},
-      {id: 9, name: "Pisanie e-booków", price: 38,  class: "sprite-Image-16" },
-      {id: 10, name: "Content na strony WWW", price: "",  class: "sprite-Image-17" },
-      {id: 11, name: "Prowadzenie fanpage", price: "",  class: "sprite-Image-18" },
-      {id: 12, name: "Usługa indywidualna", price: "",  class: "sprite-Image-19" }];
-    //todo wyświetl dane z bazy
+      {id: 1, name: "artykuły poradnikowe", price: 10, class: "sprite-Image-8"},
+      {id: 2, name: "artykuły informacyjne", price: 17, class: "sprite-Image-9"},
+      {id: 3, name: "artykuły specjalistyczne", price: 30, class: "sprite-Image-10"},
+      {id: 4, name: "content reklamowy", price: 0, class: "sprite-Image-11"},
+      {id: 5, name: "teksty seo", price: 15, class: "sprite-Image-12"},
+      {id: 6, name: "prowadzenie blogów", price: "", class: "sprite-Image-13"},
+      {id: 7, name: "opisy kategorii i produktów", price: "", class: "sprite-Image-14"},
+      {id: 8, name: "Email marketing", price: 55, class: "sprite-Image-15"},
+      {id: 9, name: "Pisanie e-booków", price: 38, class: "sprite-Image-16"},
+      {id: 10, name: "Content na strony WWW", price: "", class: "sprite-Image-17"},
+      {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
+      {id: 12, name: "Usługa indywidualna", price: "", class: "sprite-Image-19"}];
+
+    $scope.showClearFilter = false;
 
     //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (number, item) {
       $scope.base = number;
+      //pokaż button, po wybraniu jakiegoś itema
+      $scope.showClearFilterButton();
+
+    };
+    $scope.showClearFilterButton = function () {
+      $scope.showClearFilter = true;
+    };
+    $scope.hideClearFilterButton = function () {
+      $scope.showClearFilter = false;
     };
     //ustawia okres współpracy po kliknięciu w item
     $scope.setPeriod = function (number) {
