@@ -423,5 +423,8 @@ input {
   z-index: 1000;
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   -moz-transform: rotateX(0deg) rotateY(0deg);
+}
 
+.parameters .col-md-4 p {
+  min-height: 40px;
 }

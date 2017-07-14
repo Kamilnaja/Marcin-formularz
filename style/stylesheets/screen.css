@@ -479,3 +479,8 @@ input {
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   -moz-transform: rotateX(0deg) rotateY(0deg);
 }
+
+/* line 428, ../sass/screen.scss */
+.parameters .col-md-4 p {
+  min-height: 40px;
+}

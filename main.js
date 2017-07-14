@@ -1,12 +1,12 @@
 angular.module('FormApp', [])
   .controller('FormAppController', function ($scope) {
     $scope.hardness = "";
-    $scope.letterCount = 25;
+    $scope.letterCount = "";
     $scope.showServices = true;
     $scope.hardness = ["trudny", "średni", "łatwy"];
     $scope.time = ["standardowy", "express"];
     $scope.materials = ["tak", "nie"];
-    $scope.language = ["Polski", "Rosyjski", "Angielski", "Hiszpański"];
+    $scope.seo = ["Tak", "Nie"];
     $scope.trades = [
       {id: 1, name: "bankowość"},
       {id: 2, name: "Ubezpieczenia"},
@@ -47,7 +47,7 @@ angular.module('FormApp', [])
       {id: 21, name: "Logistyka"},
       {id: 22, name: "Motoryzacja"}
     ];
-    $scope.base = 10;
+
     //price - ustaw stawkę za 1000 znaków dla kategorii
     $scope.services = [
       {id: 1, name: "artykuły poradnikowe", price: 10, class: "sprite-Image-8"},
@@ -121,6 +121,9 @@ angular.module('FormApp', [])
     $scope.setPeriod = function (number) {
       $scope.period = number;
       console.log(number);
+      if ($scope.period === 1 ){
+
+      }
     };
 
     //todo add more items
@@ -144,7 +147,7 @@ angular.module('FormApp', [])
         $scope.selectedMaterials &&
         $scope.selectedTime &&
         $scope.selectedTrade &&
-        $scope.selectedLanguage) {
+        $scope.selectedSeo) {
         console.log("all selected");
         $scope.showParameters = false;
       } else {
@@ -155,7 +158,8 @@ angular.module('FormApp', [])
     $scope.showAllParameters = function () {
 
       $scope.showParameters = true;
-    }
+    };
+    $scope.monthlyTextNumber = 0;
   });
 
 $(document).ready(function () {
@@ -174,3 +178,4 @@ $(document).ready(function () {
     e.preventDefault();
   });
 });
+
