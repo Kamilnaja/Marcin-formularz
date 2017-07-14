@@ -24,7 +24,7 @@
         <div
             class="col-md-4 col-xs-6 text-variable-item"
             ng-repeat="x in services | filter: filters"
-            ng-click="setBase(x.price, item, x.name)">
+            ng-click="setBase(x)">
           <!--po kliknięciu ustawia filtr na klasę itemu i filtruje-->
           <div ng-click="filters.class = x.class">
             <div class="sprite {{x.class}}"></div>
@@ -34,8 +34,8 @@
         <!--//pokazać dopiero, jak filter działa-->
         <div class="clear-filter-wrap" ng-show=showClearFilter>
           <button
-              ng-click="filters.class = ''; hideClearFilterButton()"
-              class="clear-filter btn btn-blue-reversed">Wyczyść
+              ng-click="filters.class = ''; showAllParameters()"
+              class="clear-parameters btn btn-blue-reversed">Wyczyść
           </button>
         </div>
       </section>
@@ -98,6 +98,12 @@
             </select>
           </div>
         </div>
+        <div class="clear-filter-wrap">
+          <button
+              class="clear-parameters btn btn-blue-reversed" ng-click="showParameters=true">Rozwiń
+          </button>
+        </div>
+
       </section>
 
       <section class="how-long">
@@ -111,17 +117,29 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-sm-6 col-md-offset-3">
-            <div class="period" ng-click="setPeriod(1)">Jednorazowy</div>
+          <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+            <div class="period period-1">Jednorazowy</div>
           </div>
-          <div class="col-md-4 col-sm-6 col-md-offset-3">
-            <div class="period" ng-click="setPeriod(2)">
+          <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+            <div class="period period-2" ng-click="setPeriod(2)">
               Miesięczny
             </div>
           </div>
-          <div class="col-md-4 col-sm-6 col-md-offset-3">
-            <div class="period" ng-click="setPeriod(3)">
-              Roczny
+          <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+            <!--<div class="period period-3" ng-click="setPeriod(3)">-->
+            <!--Roczny-->
+            <!--</div>-->
+            <div class="hover panel">
+              <div class="front">
+                <div class="pad">
+                  after
+                </div>
+              </div>
+              <div class="back">
+                <div class="pad">
+                  before
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -135,10 +153,9 @@
             </h2>
           </div>
           <div class="col-md-12">
-            <p>Wybierz usługę, której mam się podjąć. Pamiętaj, że kalkulator uwzględnia standardowe stawki za
-              poszczególne
-              zlecenia. Każdy tekst jest formatowany wedle najlepszych praktyk SEO i SEM. Usługa zawiera w sobie 3
-              ewentualne poprawki.</p>
+            <p>Podaj swoje dane, abym mógł skontaktować się z Tobą i zaprezentować Ci swoją faktyczną ofertę. Poniżej
+              możesz dopisać szczegóły zlecenia, a także pobrać i przesłać brief ułatwiający sprecyzowanie swoich
+              copywriterskich potrzeb.</p>
           </div>
         </div>
         <div class="row">
@@ -178,38 +195,47 @@
 
     </div><!-- col-md-9 -->
     <div class="col-md-3 sidebar">
-      <h2 class="centered">Podsumowanie</h2>
-      <h3>Rodzaj tekstu</h3>
-      <p class="value centered">
-        {{selectedItem}}
-      </p>
-      <h3>Parametry szczegółowe</h3>
-      <h4 class="centered">Ilość znaków w jednym tekście</h4>
-      <div class="value centered">
-        {{letterCount}}
+      <div class="big-info" ng-show=sidebarBigInfo>
+        {{bigInfo}}
       </div>
-      <h4 class="centered">Trudność tekstów</h4>
-      <div class="value centered">
-        {{selectedHardness}}
+      <div class="detailed-info" ng-show=sidebarDetails>
+        <h2 class="centered">Podsumowanie</h2>
+        <h3>Rodzaj tekstu</h3>
+        <p class="value centered">
+          {{selectedCategory}}
+        </p>
+        <h3>Parametry szczegółowe</h3>
+        <h4 class="centered">Ilość znaków w jednym tekście</h4>
+        <div class="value centered">
+          {{letterCount}}
+        </div>
+        <h4 class="centered">Trudność tekstów</h4>
+        <div class="value centered">
+          {{selectedHardness}}
+        </div>
+        <h4 class=" centered">Materiały</h4>
+        <div class="value centered">
+          {{selectedMaterials}}
+        </div>
+        <h2>Cena</h2>
+        <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
+        <div class="value centered">
+          {{base}} zł
+        </div>
+        <h3 class=" centered">Zniżka za okres współpracy</h3>
+        <div class="value centered">
+          {{discount}}
+        </div>
+        <h2>Sugerowana cena</h2>
+        {{suggestedPrice}}
       </div>
-      <h4 class=" centered">Materiały</h4>
-      <div class="value centered">
-        {{selectedMaterials}}
-      </div>
-      <h2>Cena</h2>
-      <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
-      <div class="value centered">
-        {{base}} zł
-      </div>
-      <h3 class=" centered">Zniżka za okres współpracy</h3>
-      <div class="value centered">
-        {{discount}}
-      </div>
-      <h2>Sugerowana cena</h2>
-      {{suggestedPrice}}
     </div>
   </div>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
 
 <script src="main.js"></script>

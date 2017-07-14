@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
-
+$blue: #1B3F93;
 $lato: 'Lato', sans-serif;
 body {
   font-family: $lato;
@@ -108,25 +108,47 @@ body {
     border: 1px solid red;
   }
 }
+
 .parameters, .personal-data {
   input, select {
     @media(max-width: 768px) {
-    width: 100%;
+      width: 100%;
     }
   }
 }
+
 .period {
   width: 100%;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid orange;
-  cursor: pointer;
+  border: 2px solid grey;
   margin-top: 15px;
+}
+
+.period-1 {
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  background-color: white;
+
   &:hover {
-    background-color: orange;
+    background-color: transparent;
   }
+}
+
+.period-2 {
+  cursor: pointer;
+  border: 2px solid $blue;
+  background-color: white;
+  color: black;
+}
+
+.period-3 {
+  cursor: pointer;
+  border: 2px solid $blue;
+  background-color: $blue;
+  color: white;
 }
 
 //forms
@@ -212,17 +234,32 @@ input {
   margin-bottom: 15px;
 }
 
+.clear-parameters.clear-parameters {
+  padding: 5px 10px;
+  width: auto;
+  margin-top: 10px;
+
+}
+
+.detailed-info,
+.big-info {
+  border: 1px solid black;
+  padding: 15px;
+  font-size: 18px;
+
+}
+
 .btn-blue-reversed {
   border: 1px solid #1B3F93;
   color: #1B3F93 !important;
   background-color: white;
-  width: 100%;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
   padding-top: 5px;
   padding-bottom: 5px;
   transition: 0.3s ease;
+  width: 100%;
   &:hover {
     border: 1px solid #1B3F93;
     background-color: #1B3F93;
@@ -292,7 +329,7 @@ input {
 }
 
 .sidebar {
-  border: 1px solid #1B3F93;
+
   padding-bottom: 50px;
   h3 {
     font-size: 17px;
@@ -303,11 +340,88 @@ input {
     font-weight: normal;
   }
   .value {
-    color: #1B3F93;
+    color: $blue;
     min-height: 15px;
   }
 }
 
 .centered {
   text-align: center;
+}
+
+.panel .pad {padding: 0 15px; }
+.panel.flip .action {display: none; }
+.panel {
+  width: 200px;
+  height: 200px;
+  margin-top: 14px;
+  position: relative;
+
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+}
+.panel .front,
+.panel .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.panel .front {
+  z-index: 900;
+  width: inherit;
+  height: inherit;
+  border: 2px solid $blue;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.panel.flip .front {
+  z-index: 900;
+
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+}
+
+.panel .back {
+  position: absolute;
+    border: 2px solid orange;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  width: inherit;
+  height: inherit;
+
+
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.panel.flip .back {
+  z-index: 1000;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+
 }
