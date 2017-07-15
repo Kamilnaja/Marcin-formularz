@@ -64,31 +64,32 @@
               Określ skomplikowanie tematyki
             </p>
             <select
-                ng-model="selectedHardness"
-                ng-options="x for x in hardness"
+                ng-model="hardness.selected"
+                ng-options="x.name for x in hardness"
                 ng-change="checkParameters()"></select>
           </div>
+
           <div class="col-md-4">
             <p>
               Dostarczenie materiałów bazowych
             </p>
             <select
-                ng-model="selectedMaterials"
-                ng-options="x for x in materials"
+                ng-model="materials.selected"
+                ng-options="x.name for x in materials"
                 ng-change="checkParameters()"></select>
           </div>
           <div class="spacer"></div>
           <div class="col-md-4">
             <p>Czas realizacji</p>
-            <select ng-model="selectedTime"
-                    ng-options="x for x in time"
+            <select ng-model="time.selected"
+                    ng-options="x.name for x in time"
                     ng-change="checkParameters()"></select>
           </div>
           <div class="col-md-4">
             <p>Określ branżę</p>
             <select
-                ng-model="selectedTrade"
-                ng-options="item.name for item in trades"
+                ng-model="trade.selected"
+                ng-options="x.name for x in trades"
                 ng-change="checkParameters()">
             </select>
           </div>
@@ -97,8 +98,8 @@
               Czy chcesz skorzystać z pozycjonowania witryny
             </p>
             <select
-                ng-model="selectedSeo"
-                ng-options="x for x in seo"
+                ng-model="seo.selected"
+                ng-options="x.name for x in seo"
                 ng-change="checkParameters()">
             </select>
           </div>
@@ -224,18 +225,20 @@
         <div class="value centered">
           {{letterCount}}
         </div>
-        <h4 class="centered">Trudność tekstów</h4>
-        <div class="value centered">
-          {{selectedHardness}}
-        </div>
-        <h4 class=" centered">Materiały</h4>
+        <!--<h4 class="centered">Trudność tekstów</h4>-->
+        <!--<div class="value centered">-->
+        <!--{{selectedHardness}}-->
+        <!--</div>-->
+        <h4 class=" centered">Dostarczone materiały</h4>
         <div class="value centered">
           {{selectedMaterials}}
         </div>
+        <h4>Dopłata za express</h4>
+        {{selectedTime.biggerPrice}}
         <h2>Cena</h2>
         <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
         <div class="value centered">
-          {{base}} zł
+          {{base * selectedHardness * selectedTimeCounter * selectedMaterialsCount | currency : "PLN" }}
         </div>
         <h3 class=" centered">Zniżka za okres współpracy</h3>
         <div class="value centered">
@@ -252,7 +255,6 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
-
 <script src="main.js"></script>
 </body>
 </html>

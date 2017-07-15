@@ -1,43 +1,48 @@
 angular.module('FormApp', [])
   .controller('FormAppController', function ($scope) {
-    $scope.hardness = "";
+
     $scope.letterCount = "";
     $scope.showServices = true;
-    $scope.hardness = ["trudny", "średni", "łatwy"];
-    $scope.time = ["standardowy", "express"];
-    $scope.materials = ["tak", "nie"];
-    $scope.seo = ["Tak", "Nie"];
+    $scope.hardness = [
+      {id: 1, name: "łatwy", counter: 1},
+      {id: 2, name: "średni", counter: 1.5},
+      {id: 3, name: "trudny", counter: 1.75}
+    ];
+    $scope.hardness.selected = 1;
+
+    $scope.time = [
+      {id: 1, name: "standardowy (3 - 7 dni)", counter: 1, biggerPrice: "nie"},
+      {id: 2, name: "express ( do 2 dni), praca w weekend", counter: 1.5, biggerPrice: "tak"}
+    ];
+    $scope.time.selected = 1;
+
+    $scope.materials = [
+      {id: 1, name: "tak", counter: 1},
+      {id: 2, name: "nie", counter: 1.1}
+    ];
+    $scope.materials.selected = 1;
+
+    $scope.seo = [
+      {id: 1, name: "Tak", counter: ""},
+      {id: 2, name: "Nie", counter: ""}
+    ];
+    $scope.seo.selected = "";
+
     $scope.trades = [
       {id: 1, name: "bankowość"},
       {id: 2, name: "Ubezpieczenia"},
-      {
-        id: 3, name: "Finanse"
-      },
-      {
-        id: 4, name: "Technika"
-      },
-      {
-        id: 5, name: "Przemysł"
-      },
-      {
-        id: 6, name: "Telekomunikacja"
-      }, {
-        id: 7, name: "Technologie"
-      }, {
-        id: 8, name: "Przemysł"
-      }, {
-        id: 9, name: "Przemysł"
-      }, {
-        id: 10, name: "IT"
-      }, {
-        id: 11, name: "Budownictwo"
-      }, {
-        id: 12, name: "E-commerce"
-      }, {
-        id: 13, name: "Marketing"
-      }, {
-        id: 14, name: "Lifestyle"
-      },
+      {id: 3, name: "Finanse"},
+      {id: 4, name: "Technika"},
+      {id: 5, name: "Przemysł"},
+      {id: 6, name: "Telekomunikacja"},
+      {id: 7, name: "Technologie"},
+      {id: 8, name: "Przemysł"},
+      {id: 9, name: "Przemysł"},
+      {id: 10, name: "IT"},
+      {id: 11, name: "Budownictwo"},
+      {id: 12, name: "E-commerce"},
+      {id: 13, name: "Marketing"},
+      {id: 14, name: "Lifestyle"},
       {id: 15, name: "moda"},
       {id: 16, name: "Dom i wnętrze"},
       {id: 17, name: "Żywność i napoje"},
@@ -47,6 +52,7 @@ angular.module('FormApp', [])
       {id: 21, name: "Logistyka"},
       {id: 22, name: "Motoryzacja"}
     ];
+    $scope.trades.selected = 1;
 
     //price - ustaw stawkę za 1000 znaków dla kategorii
     $scope.services = [
@@ -62,6 +68,7 @@ angular.module('FormApp', [])
       {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
       {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
       {id: 12, name: "Usługa indywidualna", price: "", class: "sprite-Image-19"}];
+    $scope.services.selected = 1;
 
     $scope.showClearFilter = false;
 
@@ -70,6 +77,9 @@ angular.module('FormApp', [])
 
     $scope.sidebarDetail = false;
     $scope.sidebarBigInfo = false;
+
+    //parametry do przeliczenia w widoku
+    $scope.base = 15;
 
 
     //ustala cenę bazową po kliknięciu w item
@@ -97,6 +107,7 @@ angular.module('FormApp', [])
         $scope.sidebarDetails = true;
         $scope.sidebarBigInfo = false;
         $scope.selectedCategory = item.name;
+        $scope.base = item.price;
       }
       //pokaż button, po wybraniu jakiegoś itema zawsze
       $scope.showClearFilterButton();
@@ -107,7 +118,6 @@ angular.module('FormApp', [])
       } else {
         $scope.showParameters = true;
       }
-
     };
 
 
@@ -121,7 +131,7 @@ angular.module('FormApp', [])
     $scope.setPeriod = function (number) {
       $scope.period = number;
       console.log(number);
-      if ($scope.period === 1 ){
+      if ($scope.period === 1) {
 
       }
     };
@@ -139,7 +149,7 @@ angular.module('FormApp', [])
 
     $scope.filters = {};
     $scope.showParameters = true;
-
+    //todo - przelicz selected hardness
     //toggle parameters
     $scope.checkParameters = function () {
       if (
@@ -150,8 +160,6 @@ angular.module('FormApp', [])
         $scope.selectedSeo) {
         console.log("all selected");
         $scope.showParameters = false;
-      } else {
-        console.log("not all");
       }
     };
 
