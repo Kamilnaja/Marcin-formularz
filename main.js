@@ -191,18 +191,9 @@ angular.module('FormApp', [])
     $scope.filters = {};
     $scope.showParameters = true;
     //todo - przelicz selected hardness
+
     $scope.checkParameters = function () {
       console.log($scope.materials.selected, $scope.hardness.selected, $scope.time.selected, $scope.trades.selected, $scope.seo.selected);
-      if (
-        $scope.materials.selected &&
-        $scope.hardness.selected &&
-        $scope.time.selected &&
-        $scope.trades.selected &&
-        $scope.seo.selected
-      ) {
-        console.log("all selected");
-        $scope.showParameters = false;
-      }
     };
 
     $scope.showAllParameters = function () {
