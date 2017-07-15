@@ -8,14 +8,13 @@ angular.module('FormApp', [])
       {id: 2, name: "średni", counter: 1.5},
       {id: 3, name: "trudny", counter: 1.75}
     ];
-    $scope.hardness.selected = 1;
+    $scope.hardness.selected = "";
 
     $scope.time = [
       {id: 1, name: "standardowy (3 - 7 dni)", counter: 1, biggerPrice: "nie"},
       {id: 2, name: "express ( do 2 dni), praca w weekend", counter: 1.5, biggerPrice: "tak"}
     ];
-
-    $scope.time.selected = 1;
+    $scope.time.selected = "";
 
     $scope.materials = [
       {id: 1, name: "tak", counter: 1},
@@ -52,7 +51,7 @@ angular.module('FormApp', [])
       {id: 21, name: "Logistyka", counter: 1.2},
       {id: 22, name: "Motoryzacja", counter: 1.2}
     ];
-    $scope.trades.selected = 1;
+    $scope.trades.selected = "";
 
     //price - ustaw stawkę za 1000 znaków dla kategorii
     $scope.services = [
@@ -68,7 +67,6 @@ angular.module('FormApp', [])
       {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
       {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
       {id: 12, name: "Usługa indywidualna", price: "", class: "sprite-Image-19"}];
-
 
     $scope.showClearFilter = false;
 
@@ -102,7 +100,7 @@ angular.module('FormApp', [])
         $scope.sidebarDetails = false;
         $scope.sidebarBigInfo = true;
       } else if (item.id === 4) {
-        $scope.bigInfo = "wycena indywidualna – określ: ulotki (50 zł za 1500 zzs), artykuły do gazet (40 zł/1k zzs), broszury (50 zł za 1500 zzs).";
+        $scope.bigInfo = "Treści reklamowe. Wycena indywidualna – określ: ulotki (50 zł za 1500 zzs), artykuły do gazet (40 zł/1k zzs), broszury (50 zł za 1500 zzs).</p>";
         $scope.sidebarDetails = false;
         $scope.sidebarBigInfo = true;
       } else {
@@ -122,6 +120,9 @@ angular.module('FormApp', [])
       }
     };
 
+    $scope.monthlyTextNumberAwesomebonus = 1;
+    $scope.yearlyTextNumberAwesomebonus = 1;
+
 
     $scope.showClearFilterButton = function () {
       $scope.showClearFilter = true;
@@ -138,7 +139,45 @@ angular.module('FormApp', [])
       }
     };
 
-    //todo add more items
+    $scope.countYearlyBonus = function () {
+      //resetuj bonus miesięczny
+      $scope.monthlyTextNumberAwesomebonus = 1;
+      $scope.monthlyTextNumber = 0;
+      $scope.yearlyTextNumberAwesomebonus = 1;
+
+      if ($scope.yearlyTextNumber < 5) {
+        $scope.yearlyTextNumberAwesomebonus = 1;
+      } else if
+      (6 <= $scope.yearlyTextNumber && $scope.yearlyTextNumber >= 10) {
+        $scope.yearlyTextNumberAwesomebonus = 0.8;
+      }
+      else {
+        $scope.yearlyTextNumberAwesomebonus = 0.6;
+      }
+      console.log($scope.yearlyTextNumberAwesomebonus, $scope.yearlyTextNumber, $scope.monthlyTextNumber);
+    };
+
+    $scope.countMonthlyBonus = function () {
+      //resetuj bonus roczny
+      $scope.yearlyTextNumberAwesomebonus = 1;
+      $scope.yearlyTextNumber = 0;
+      console.log($scope.monthlyTextNumber);
+      $scope.monthlyTextNumberAwesomebonus = 1;
+
+      if ($scope.monthlyTextNumber < 5) {
+        $scope.monthlyTextNumberAwesomebonus = 1;
+      } else if
+      (6 <= $scope.monthlyTextNumber && $scope.monthlyTextNumber >= 10) {
+        $scope.monthlyTextNumberAwesomebonus = 0.8;
+      }
+      else {
+        $scope.monthlyTextNumberAwesomebonus = 0.6;
+        //zresetuj bonus roczny
+      }
+
+      console.log($scope.yearlyTextNumberAwesomebonus, $scope.yearlyTextNumber);
+    };
+
     $scope.textInfo = "";
 
     $scope.toggleServices = function () {
@@ -153,16 +192,17 @@ angular.module('FormApp', [])
     $scope.showParameters = true;
     //todo - przelicz selected hardness
     $scope.checkParameters = function () {
-      // if (
-      //   $scope.hardness.selected &&
-      //   $scope.selectedMaterials &&
-      //   $scope.selectedTime &&
-      //   $scope.selectedTrade &&
-      //   $scope.selectedSeo) {
-      //   console.log("all selected");
-      //   $scope.showParameters = false;
-      // }
-
+      console.log($scope.materials.selected, $scope.hardness.selected, $scope.time.selected, $scope.trades.selected, $scope.seo.selected);
+      if (
+        $scope.materials.selected &&
+        $scope.hardness.selected &&
+        $scope.time.selected &&
+        $scope.trades.selected &&
+        $scope.seo.selected
+      ) {
+        console.log("all selected");
+        $scope.showParameters = false;
+      }
     };
 
     $scope.showAllParameters = function () {
@@ -171,7 +211,7 @@ angular.module('FormApp', [])
     };
     $scope.monthlyTextNumber = 0;
     $scope.countAll = function () {
-      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumber * $scope.monthlyTextNumber;
+      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus;
       console.log(
         "services = " + $scope.services.selected +
         "\n trudność = " + $scope.hardness.selected.counter +
@@ -179,8 +219,8 @@ angular.module('FormApp', [])
         "\n materiały " + $scope.materials.selected.counter +
         "\n branża " + $scope.trades.selected.counter +
         "\n Stawka " + $scope.detailPrice +
-        "\n Bonusmiesięczny " + $scope.yearlyTextNumber +
-        "\n BonusRoczny " + $scope.monthlyTextNumber
+        "\n Bonusmiesięczny " + $scope.monthlyTextNumberAwesomebonus +
+        "\n BonusRoczny " + $scope.yearlyTextNumberAwesomebonus
       );
     }
   });
@@ -201,4 +241,3 @@ $(document).ready(function () {
     e.preventDefault();
   });
 });
-

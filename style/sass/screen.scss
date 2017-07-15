@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
+
 $blue: #1B3F93;
 $lato: 'Lato', sans-serif;
 body {
@@ -349,8 +350,14 @@ input {
   text-align: center;
 }
 
-.panel .pad {padding: 0 15px; }
-.panel.flip .action {display: none; }
+.panel .pad {
+  padding: 0 15px;
+}
+
+.panel.flip .action {
+  display: none;
+}
+
 .panel {
   width: 200px;
   height: 200px;
@@ -360,6 +367,7 @@ input {
   -webkit-perspective: 600px;
   -moz-perspective: 600px;
 }
+
 .panel .front,
 .panel .back {
   display: flex;
@@ -367,6 +375,7 @@ input {
   align-items: center;
   cursor: pointer;
 }
+
 .panel .front {
   z-index: 900;
   width: inherit;
@@ -386,6 +395,7 @@ input {
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }
+
 .panel.flip .front {
   z-index: 900;
 
@@ -396,13 +406,12 @@ input {
 
 .panel .back {
   position: absolute;
-    border: 2px solid orange;
+  border: 2px solid orange;
   top: 0;
   left: 0;
   z-index: 800;
   width: inherit;
   height: inherit;
-
 
   -webkit-transform: rotateY(-180deg);
   -webkit-transform-style: preserve-3d;
@@ -425,6 +434,13 @@ input {
   -moz-transform: rotateX(0deg) rotateY(0deg);
 }
 
-.parameters .col-md-4 p {
-  min-height: 40px;
+.parameters .col-md-4 {
+  @media(max-width: 991px) {
+    margin-bottom: 15px;
+  }
+ p {
+  @media(min-width: 992px) {
+    min-height: 40px;
+  }
+}
 }

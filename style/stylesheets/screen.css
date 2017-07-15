@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext");
-/* line 4, ../sass/screen.scss */
+/* line 5, ../sass/screen.scss */
 body {
   font-family: "Lato", sans-serif;
   font-size: 13px;
 }
 
-/* line 9, ../sass/screen.scss */
+/* line 10, ../sass/screen.scss */
 h2 {
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 body {
   margin-top: 50px;
 }
 
-/* line 18, ../sass/screen.scss */
+/* line 19, ../sass/screen.scss */
 .sprite {
   background-image: url(../../images/backgrounds/spritesheet.png);
   background-repeat: no-repeat;
@@ -25,114 +25,114 @@ body {
   margin-right: auto;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 28, ../sass/screen.scss */
 .sprite-Image-10 {
   width: 90px;
   height: 88px;
   background-position: -2px -2px;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 .sprite-Image-11 {
   width: 94px;
   height: 84px;
   background-position: -2px -94px;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 .sprite-Image-12 {
   width: 90px;
   height: 87px;
   background-position: -2px -182px;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 .sprite-Image-13 {
   width: 85px;
   height: 84px;
   background-position: -2px -273px;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 .sprite-Image-14 {
   width: 84px;
   height: 88px;
   background-position: -2px -361px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 .sprite-Image-15 {
   width: 85px;
   height: 83px;
   background-position: -2px -453px;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .sprite-Image-16 {
   width: 80px;
   height: 83px;
   background-position: -2px -540px;
 }
 
-/* line 69, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .sprite-Image-17 {
   width: 90px;
   height: 79px;
   background-position: -2px -627px;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 .sprite-Image-18 {
   width: 106px;
   height: 89px;
   background-position: -2px -710px;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 .sprite-Image-19 {
   width: 73px;
   height: 81px;
   background-position: -2px -803px;
 }
 
-/* line 87, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .sprite-Image-8 {
   width: 106px;
   height: 89px;
   background-position: -2px -888px;
 }
 
-/* line 93, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .sprite-Image-9 {
   width: 84px;
   height: 81px;
   background-position: -2px -981px;
 }
 
-/* line 99, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 .text-variable-item {
   cursor: pointer;
   text-align: center;
   min-height: 130px;
   border: 1px solid transparent;
 }
-/* line 104, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .text-variable-item:hover {
   border: 1px solid orange;
 }
-/* line 107, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 .text-variable-item:active {
   border: 1px solid red;
 }
 
 @media (max-width: 768px) {
-  /* line 113, ../sass/screen.scss */
+  /* line 114, ../sass/screen.scss */
   .parameters input, .parameters select, .personal-data input, .personal-data select {
     width: 100%;
   }
 }
 
-/* line 120, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 .period {
   width: 100%;
   height: 200px;
@@ -143,18 +143,18 @@ body {
   margin-top: 15px;
 }
 
-/* line 130, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 .period-1 {
   border: 2px solid lightgrey;
   color: lightgrey;
   background-color: white;
 }
-/* line 135, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 .period-1:hover {
   background-color: transparent;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 .period-2 {
   cursor: pointer;
   border: 2px solid #1B3F93;
@@ -162,7 +162,7 @@ body {
   color: black;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 .period-3 {
   cursor: pointer;
   border: 2px solid #1B3F93;
@@ -170,51 +170,51 @@ body {
   color: white;
 }
 
-/* line 155, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 section {
   margin-top: 50px;
   overflow: hidden;
 }
 
-/* line 160, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 select {
   border: 1px solid orange;
   min-width: 150px;
   height: 30px;
 }
 @media (min-width: 992px) {
-  /* line 160, ../sass/screen.scss */
+  /* line 161, ../sass/screen.scss */
   select {
     width: 100%;
   }
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 input {
   height: 30px;
   border: 1px solid orange;
   padding: 10px;
 }
 @media (min-width: 992px) {
-  /* line 169, ../sass/screen.scss */
+  /* line 170, ../sass/screen.scss */
   input {
     width: 100%;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 179, ../sass/screen.scss */
+  /* line 180, ../sass/screen.scss */
   .text-variable-item:nth-child(3n + 1) {
     clear: left;
   }
 }
 @media (max-width: 450px) {
-  /* line 185, ../sass/screen.scss */
+  /* line 186, ../sass/screen.scss */
   .text-variable-item:nth-child(2n + 1) {
     clear: left;
   }
 }
-/* line 190, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 .spacer {
   height: 15px;
   width: 100%;
@@ -223,58 +223,58 @@ input {
   overflow: hidden;
 }
 @media (min-width: 992px) {
-  /* line 190, ../sass/screen.scss */
+  /* line 191, ../sass/screen.scss */
   .spacer {
     height: 30px;
   }
 }
 
-/* line 201, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 .clear-filter {
   clear: both;
   max-width: 200px;
 }
 
-/* line 206, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 .clear-filter-wrap {
   clear: both;
   padding-left: 15px;
 }
 
-/* line 212, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 .personal-data textarea {
   border: 2px solid lightgrey;
   margin-top: 15px;
   width: 100%;
   background-color: #e5e5e5;
 }
-/* line 218, ../sass/screen.scss */
+/* line 219, ../sass/screen.scss */
 .personal-data input {
   border: 2px solid lightgrey;
   background-color: #e5e5e5;
 }
 
 @media (min-width: 992px) {
-  /* line 226, ../sass/screen.scss */
+  /* line 227, ../sass/screen.scss */
   .sidebar {
     position: fixed;
     right: 0;
   }
 }
-/* line 232, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .submit-section {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-/* line 237, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 .clear-parameters.clear-parameters {
   padding: 5px 10px;
   width: auto;
   margin-top: 10px;
 }
 
-/* line 244, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .detailed-info,
 .big-info {
   border: 1px solid black;
@@ -282,7 +282,7 @@ input {
   font-size: 18px;
 }
 
-/* line 252, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 .btn-blue-reversed {
   border: 1px solid #1B3F93;
   color: #1B3F93 !important;
@@ -295,14 +295,14 @@ input {
   transition: 0.3s ease;
   width: 100%;
 }
-/* line 263, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 .btn-blue-reversed:hover {
   border: 1px solid #1B3F93;
   background-color: #1B3F93;
   color: white !important;
 }
 
-/* line 270, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 .btn-blue-standard {
   width: 100%;
   -webkit-border-radius: 0;
@@ -315,14 +315,14 @@ input {
   color: white !important;
   transition: 0.3s ease;
 }
-/* line 282, ../sass/screen.scss */
+/* line 283, ../sass/screen.scss */
 .btn-blue-standard:hover {
   border: 1px solid #1B3F93;
   color: #1B3F93 !important;
   background-color: white;
 }
 
-/* line 289, ../sass/screen.scss */
+/* line 290, ../sass/screen.scss */
 .btn-orange-reversed {
   border: 1px solid orange;
   color: orange !important;
@@ -335,19 +335,19 @@ input {
   padding-bottom: 5px;
   transition: 0.3s ease;
 }
-/* line 300, ../sass/screen.scss */
+/* line 301, ../sass/screen.scss */
 .btn-orange-reversed:hover {
   border: 1px solid orange;
   background-color: orange;
   color: white !important;
 }
 
-/* line 307, ../sass/screen.scss */
+/* line 308, ../sass/screen.scss */
 .header-info {
   position: relative;
 }
 
-/* line 311, ../sass/screen.scss */
+/* line 312, ../sass/screen.scss */
 .header-info-after {
   height: 2px;
   background-color: orange;
@@ -357,7 +357,7 @@ input {
   margin-top: 11px;
 }
 @media (max-width: 772px) {
-  /* line 311, ../sass/screen.scss */
+  /* line 312, ../sass/screen.scss */
   .header-info-after {
     width: 100%;
     margin-bottom: 15px;
@@ -365,48 +365,48 @@ input {
 }
 
 @media (max-width: 992px) {
-  /* line 325, ../sass/screen.scss */
+  /* line 326, ../sass/screen.scss */
   .submit-section .col-md-4 {
     margin-bottom: 10px;
   }
 }
 
-/* line 331, ../sass/screen.scss */
+/* line 332, ../sass/screen.scss */
 .sidebar {
   padding-bottom: 50px;
 }
-/* line 334, ../sass/screen.scss */
+/* line 335, ../sass/screen.scss */
 .sidebar h3 {
   font-size: 17px;
   font-weight: bold;
 }
-/* line 338, ../sass/screen.scss */
+/* line 339, ../sass/screen.scss */
 .sidebar h4 {
   font-size: 16px;
   font-weight: normal;
 }
-/* line 342, ../sass/screen.scss */
+/* line 343, ../sass/screen.scss */
 .sidebar .value {
   color: #1B3F93;
   min-height: 15px;
 }
 
-/* line 348, ../sass/screen.scss */
+/* line 349, ../sass/screen.scss */
 .centered {
   text-align: center;
 }
 
-/* line 352, ../sass/screen.scss */
+/* line 353, ../sass/screen.scss */
 .panel .pad {
   padding: 0 15px;
 }
 
-/* line 353, ../sass/screen.scss */
+/* line 357, ../sass/screen.scss */
 .panel.flip .action {
   display: none;
 }
 
-/* line 354, ../sass/screen.scss */
+/* line 361, ../sass/screen.scss */
 .panel {
   width: 200px;
   height: 200px;
@@ -416,7 +416,7 @@ input {
   -moz-perspective: 600px;
 }
 
-/* line 363, ../sass/screen.scss */
+/* line 371, ../sass/screen.scss */
 .panel .front,
 .panel .back {
   display: flex;
@@ -425,7 +425,7 @@ input {
   cursor: pointer;
 }
 
-/* line 370, ../sass/screen.scss */
+/* line 379, ../sass/screen.scss */
 .panel .front {
   z-index: 900;
   width: inherit;
@@ -444,14 +444,14 @@ input {
   transition: all .4s ease-in-out;
 }
 
-/* line 389, ../sass/screen.scss */
+/* line 399, ../sass/screen.scss */
 .panel.flip .front {
   z-index: 900;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
 }
 
-/* line 397, ../sass/screen.scss */
+/* line 407, ../sass/screen.scss */
 .panel .back {
   position: absolute;
   border: 2px solid orange;
@@ -473,14 +473,22 @@ input {
   transition: all .4s ease-in-out;
 }
 
-/* line 422, ../sass/screen.scss */
+/* line 431, ../sass/screen.scss */
 .panel.flip .back {
   z-index: 1000;
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   -moz-transform: rotateX(0deg) rotateY(0deg);
 }
 
-/* line 428, ../sass/screen.scss */
-.parameters .col-md-4 p {
-  min-height: 40px;
+@media (max-width: 991px) {
+  /* line 437, ../sass/screen.scss */
+  .parameters .col-md-4 {
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 441, ../sass/screen.scss */
+  .parameters .col-md-4 p {
+    min-height: 40px;
+  }
 }
