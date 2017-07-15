@@ -24,9 +24,13 @@
         <div
             class="col-md-4 col-xs-6 text-variable-item"
             ng-repeat="x in services | filter: filters"
-            ng-click="setBase(x)">
+            ng-click="setBase(x); countAll()"
+            ng-model="services.selected"
+        >
+
           <!--po kliknięciu ustawia filtr na klasę itemu i filtruje-->
-          <div ng-click="filters.class = x.class">
+          <div
+              ng-click="filters.class = x.class">
             <div class="sprite {{x.class}}"></div>
             <p>{{x.name}}</p>
           </div>
@@ -66,7 +70,8 @@
             <select
                 ng-model="hardness.selected"
                 ng-options="x.name for x in hardness"
-                ng-change="checkParameters()"></select>
+                ng-change="checkParameters(); countAll()"
+            ></select>
           </div>
 
           <div class="col-md-4">
@@ -76,21 +81,24 @@
             <select
                 ng-model="materials.selected"
                 ng-options="x.name for x in materials"
-                ng-change="checkParameters()"></select>
+                ng-change="checkParameters(); countAll()"
+            ></select>
           </div>
           <div class="spacer"></div>
           <div class="col-md-4">
             <p>Czas realizacji</p>
             <select ng-model="time.selected"
                     ng-options="x.name for x in time"
-                    ng-change="checkParameters()"></select>
+                    ng-change="checkParameters(); countAll()"
+            ></select>
           </div>
           <div class="col-md-4">
             <p>Określ branżę</p>
             <select
-                ng-model="trade.selected"
+                ng-model="trades.selected"
                 ng-options="x.name for x in trades"
-                ng-change="checkParameters()">
+                ng-change="checkParameters(); countAll()"
+            >
             </select>
           </div>
           <div class="col-md-4">
@@ -100,7 +108,7 @@
             <select
                 ng-model="seo.selected"
                 ng-options="x.name for x in seo"
-                ng-change="checkParameters()">
+                ng-change="checkParameters(); countAll()">
             </select>
           </div>
         </div>
@@ -112,9 +120,7 @@
             Rozwiń
           </button>
         </div>
-
       </section>
-
       <section class="how-long">
         <div class="row">
           <div class="col-md-12">
@@ -130,14 +136,26 @@
             <div class="period period-1">Jednorazowy</div>
           </div>
           <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
-            <div class="period period-2" ng-click="setPeriod(2)">
-              Miesięczny
+            <div class="hover panel">
+              <div class="front">
+                <div class="pad">
+                  <h2 class="text-center">Miesięczny</h2>
+                </div>
+              </div>
+              <div class="back">
+                <div class="pad">
+                  <p class="text-center">Pakiet miesięczny</p>
+                  <p class="text-center">Ilość tekstów miesięcznie</p>
+                  <input
+                      type="number"
+                      ng-model="monthlyTextNumber"
+                      min="1"
+                  >
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
-            <!--<div class="period period-3" ng-click="setPeriod(3)">-->
-            <!--Roczny-->
-            <!--</div>-->
             <div class="hover panel">
               <div class="front">
                 <div class="pad">
@@ -150,7 +168,8 @@
                   <p class="text-center">Ilość tekstów miesięcznie</p>
                   <input
                       type="number"
-                      ng-model="monthlyTextNumber"
+                      ng-model="yearlyTextNumber"
+                      min="1"
                   >
                 </div>
               </div>
@@ -238,14 +257,15 @@
         <h2>Cena</h2>
         <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
         <div class="value centered">
-          {{base * selectedHardness * selectedTimeCounter * selectedMaterialsCount | currency : "PLN" }}
+          {{services.selected}}
+
         </div>
         <h3 class=" centered">Zniżka za okres współpracy</h3>
         <div class="value centered">
           {{discount}}
         </div>
         <h2 class="centered">Sugerowana cena</h2>
-        {{suggestedPrice}}
+        <p class="centered"><b>{{detailPrice| currency : "PLN" }}</b></p>
       </div>
     </div>
   </div>

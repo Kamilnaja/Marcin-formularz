@@ -14,6 +14,7 @@ angular.module('FormApp', [])
       {id: 1, name: "standardowy (3 - 7 dni)", counter: 1, biggerPrice: "nie"},
       {id: 2, name: "express ( do 2 dni), praca w weekend", counter: 1.5, biggerPrice: "tak"}
     ];
+
     $scope.time.selected = 1;
 
     $scope.materials = [
@@ -29,28 +30,27 @@ angular.module('FormApp', [])
     $scope.seo.selected = "";
 
     $scope.trades = [
-      {id: 1, name: "bankowość"},
-      {id: 2, name: "Ubezpieczenia"},
-      {id: 3, name: "Finanse"},
-      {id: 4, name: "Technika"},
-      {id: 5, name: "Przemysł"},
-      {id: 6, name: "Telekomunikacja"},
-      {id: 7, name: "Technologie"},
-      {id: 8, name: "Przemysł"},
-      {id: 9, name: "Przemysł"},
-      {id: 10, name: "IT"},
-      {id: 11, name: "Budownictwo"},
-      {id: 12, name: "E-commerce"},
-      {id: 13, name: "Marketing"},
-      {id: 14, name: "Lifestyle"},
-      {id: 15, name: "moda"},
-      {id: 16, name: "Dom i wnętrze"},
-      {id: 17, name: "Żywność i napoje"},
-      {id: 18, name: "Rozrywka"},
-      {id: 19, name: "Rynek dziecięcy"},
-      {id: 20, name: "Transport"},
-      {id: 21, name: "Logistyka"},
-      {id: 22, name: "Motoryzacja"}
+      {id: 1, name: "Bankowość", counter: 1.5},
+      {id: 2, name: "Ubezpieczenia", counter: 1.5},
+      {id: 3, name: "Finanse", counter: 1.5},
+      {id: 4, name: "Technika", counter: 1.5},
+      {id: 5, name: "Przemysł", counter: 1.5},
+      {id: 6, name: "Telekomunikacja", counter: 1.5},
+      {id: 7, name: "Technologie", counter: 1.5},
+      {id: 8, name: "Przemysł", counter: 1.5},
+      {id: 10, name: "IT", counter: 1},
+      {id: 11, name: "Budownictwo", counter: 1},
+      {id: 12, name: "E-commerce", counter: 1},
+      {id: 13, name: "Marketing", counter: 1},
+      {id: 14, name: "Lifestyle", counter: 1},
+      {id: 15, name: "moda", counter: 1},
+      {id: 16, name: "Dom i wnętrze", counter: 1},
+      {id: 17, name: "Żywność i napoje", counter: 1},
+      {id: 18, name: "Rozrywka", counter: 1},
+      {id: 19, name: "Rynek dziecięcy", counter: 1},
+      {id: 20, name: "Transport", counter: 1.2},
+      {id: 21, name: "Logistyka", counter: 1.2},
+      {id: 22, name: "Motoryzacja", counter: 1.2}
     ];
     $scope.trades.selected = 1;
 
@@ -68,7 +68,7 @@ angular.module('FormApp', [])
       {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
       {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
       {id: 12, name: "Usługa indywidualna", price: "", class: "sprite-Image-19"}];
-    $scope.services.selected = 1;
+
 
     $scope.showClearFilter = false;
 
@@ -81,6 +81,8 @@ angular.module('FormApp', [])
     //parametry do przeliczenia w widoku
     $scope.base = 15;
 
+    $scope.monthlyTextNumber = "";
+    $scope.yearlyTextNumber = "";
 
     //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (item) {
@@ -107,7 +109,7 @@ angular.module('FormApp', [])
         $scope.sidebarDetails = true;
         $scope.sidebarBigInfo = false;
         $scope.selectedCategory = item.name;
-        $scope.base = item.price;
+        $scope.services.selected = item.price;
       }
       //pokaż button, po wybraniu jakiegoś itema zawsze
       $scope.showClearFilterButton();
@@ -150,17 +152,17 @@ angular.module('FormApp', [])
     $scope.filters = {};
     $scope.showParameters = true;
     //todo - przelicz selected hardness
-    //toggle parameters
     $scope.checkParameters = function () {
-      if (
-        $scope.selectedHardness &&
-        $scope.selectedMaterials &&
-        $scope.selectedTime &&
-        $scope.selectedTrade &&
-        $scope.selectedSeo) {
-        console.log("all selected");
-        $scope.showParameters = false;
-      }
+      // if (
+      //   $scope.hardness.selected &&
+      //   $scope.selectedMaterials &&
+      //   $scope.selectedTime &&
+      //   $scope.selectedTrade &&
+      //   $scope.selectedSeo) {
+      //   console.log("all selected");
+      //   $scope.showParameters = false;
+      // }
+
     };
 
     $scope.showAllParameters = function () {
@@ -168,6 +170,19 @@ angular.module('FormApp', [])
       $scope.showParameters = true;
     };
     $scope.monthlyTextNumber = 0;
+    $scope.countAll = function () {
+      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumber * $scope.monthlyTextNumber;
+      console.log(
+        "services = " + $scope.services.selected +
+        "\n trudność = " + $scope.hardness.selected.counter +
+        "\n czy na szybko " + $scope.time.selected.counter +
+        "\n materiały " + $scope.materials.selected.counter +
+        "\n branża " + $scope.trades.selected.counter +
+        "\n Stawka " + $scope.detailPrice +
+        "\n Bonusmiesięczny " + $scope.yearlyTextNumber +
+        "\n BonusRoczny " + $scope.monthlyTextNumber
+      );
+    }
   });
 
 $(document).ready(function () {

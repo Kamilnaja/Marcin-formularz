@@ -15,7 +15,7 @@ describe("FormAppController", function () {
       expect($scope.materials.selected).toEqual(1);
     });
     it("should show services at starts", function () {
-      expect($scope.services.selected).toEqual(1);
+      expect($scope.services.selected).toEqual(undefined);
     });
     it("should be setup base price at start", function () {
       expect($scope.base).toEqual(15);
@@ -49,6 +49,18 @@ describe("FormAppController", function () {
       it("should show show all parameters after click", function () {
         $scope.showAllParameters();
         expect($scope.showParameters).toEqual(true);
+      })
+    });
+
+    describe("ustal cenę bazową", function () {
+
+      it("should return good price after choses category", function () {
+        $scope.services.selected = 17;
+        $scope.hardness.selected.counter = 1.1;
+        $scope.time.selected = 1.1;
+        $scope.materials.selected = 1.2;
+        $scope.countAll();
+        expect($scope.detailPrice).toBeDefined();
       })
     })
   })
