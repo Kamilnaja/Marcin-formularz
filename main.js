@@ -58,20 +58,40 @@ angular.module('FormApp', [])
       {id: 1, name: "artykuły poradnikowe", price: 10, class: "sprite-Image-8"},
       {id: 2, name: "artykuły informacyjne", price: 17, class: "sprite-Image-9"},
       {id: 3, name: "artykuły specjalistyczne", price: 30, class: "sprite-Image-10"},
-      {id: 4, name: "content reklamowy", price: "", class: "sprite-Image-11"},
+      {
+        id: 4,
+        name: "content reklamowy",
+        price: "Treści reklamowe. Wycena indywidualna – określ: ulotki (50 zł za 1500 zzs), artykuły do gazet (40 zł/1k zzs), broszury (50 zł za 1500 zzs).",
+        class: "sprite-Image-11"
+      },
       {id: 5, name: "teksty seo", price: 15, class: "sprite-Image-12"},
-      {id: 6, name: "prowadzenie blogów", price: "", class: "sprite-Image-13"},
+      {
+        id: 6,
+        name: "prowadzenie blogów",
+        price: "Prowadzenie bloga – doprecyzuj: ile wpisów miesięcznie, ich objętość. Stawka bazowa za 4 wpisy w miesiącu: 300 zł netto/mc",
+        class: "sprite-Image-13"
+      },
       {id: 7, name: "opisy kategorii i produktów", price: 12, class: "sprite-Image-14"},
       {id: 8, name: "Email marketing", price: 55, class: "sprite-Image-15"},
       {id: 9, name: "Pisanie e-booków", price: 38, class: "sprite-Image-16"},
       {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
-      {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
-      {id: 12, name: "Usługa indywidualna", price: "Usługa indywidualna. Napisz, by dowiedzieć się więcej", class: "sprite-Image-19"},
+      {
+        id: 11,
+        name: "Prowadzenie fanpage",
+        price: "Cena zależy od ilości wpisów. Stawka bazowa: 300 zł netto za 4 wpisy w miesiącu i moderację komentarzy. Stawka rośnie +25 zł z każdym wpisem.",
+        class: "sprite-Image-18"
+      },
+      {
+        id: 12,
+        name: "Usługa indywidualna",
+        price: "Usługa indywidualna. Napisz, by dowiedzieć się więcej",
+        class: "sprite-Image-19"
+      },
       //todo - dodać obrazek do itemów poniżej!!!
       {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
       {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
       {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
-      ];
+    ];
 //jeśli nan to price wypisać !!! todo
     $scope.showClearFilter = false;
 
@@ -84,7 +104,7 @@ angular.module('FormApp', [])
     //parametry do przeliczenia w widoku
     $scope.base = 15;
     $scope.letterCount = 1000;
-    $scope.monthlyTextNumber = "" ;
+    $scope.monthlyTextNumber = "";
     $scope.yearlyTextNumber = "";
 
 
@@ -93,30 +113,15 @@ angular.module('FormApp', [])
       console.log($index);
       //nadaj wszystkim elementom klasę nieaktywną
       $('.text-variable-item').addClass('non-selected');
-      // // x.removeClass('non-selected');
-      // console.log(this);
+
     };
 
 
     //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (item) {
       // po kliknięciu w item sprawdź, czy ma wartość liczbową. Jeśli nie, pokaż specjalne big info
-      if (item.id === 12) {
-        $scope.bigInfo = "Usługa indywidualna. Napisz, by dowiedzieć się więcej";
-        // $scope.showDetails = false;
-        $scope.sidebarDetails = false;
-        $scope.sidebarBigInfo = true;
-      } else if (item.id === 11) {
-        //prowadzenie funpage
-        $scope.bigInfo = "Cena zależy od ilości wpisów. Stawka bazowa: 300 zł netto za 4 wpisy w miesiącu i moderację komentarzy. Stawka rośnie +25 zł z każdym wpisem.";
-        $scope.sidebarDetails = false;
-        $scope.sidebarBigInfo = true;
-      } else if (item.id === 6) {
-        $scope.bigInfo = "Prowadzenie bloga – doprecyzuj: ile wpisów miesięcznie, ich objętość. Stawka bazowa za 4 wpisy w miesiącu: 300 zł netto/mc";
-        $scope.sidebarDetails = false;
-        $scope.sidebarBigInfo = true;
-      } else if (item.id === 4) {
-        $scope.bigInfo = "Treści reklamowe. Wycena indywidualna – określ: ulotki (50 zł za 1500 zzs), artykuły do gazet (40 zł/1k zzs), broszury (50 zł za 1500 zzs).</p>";
+      if (isNaN(item.price)) {
+        $scope.bigInfo = item.price;
         $scope.sidebarDetails = false;
         $scope.sidebarBigInfo = true;
       } else {
@@ -126,11 +131,9 @@ angular.module('FormApp', [])
         $scope.services.selected = item.price;
       }
       //pokaż button, po wybraniu jakiegoś itema zawsze
-      $scope.showClearFilterButton();
-      //jeśli item nie ma ceny - wycena indywidualna ma się pojawić
+
       if (!item.price) {
         $scope.showParameters = false;
-        //wyświetl szczegółową wycenę
       } else {
         $scope.showParameters = true;
       }
@@ -215,7 +218,7 @@ angular.module('FormApp', [])
     $scope.monthlyTextNumber = 0;
 
     $scope.countAll = function () {
-      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount /1000) * $scope.textCount;
+      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount / 1000) * $scope.textCount;
       $scope.detailPriceMessage = "dupa";
     }
   });
