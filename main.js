@@ -66,8 +66,13 @@ angular.module('FormApp', [])
       {id: 9, name: "Pisanie e-booków", price: 38, class: "sprite-Image-16"},
       {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
       {id: 11, name: "Prowadzenie fanpage", price: "", class: "sprite-Image-18"},
-      {id: 12, name: "Usługa indywidualna", price: "", class: "sprite-Image-19"}];
-
+      {id: 12, name: "Usługa indywidualna", price: "Usługa indywidualna. Napisz, by dowiedzieć się więcej", class: "sprite-Image-19"},
+      //todo - dodać obrazek do itemów poniżej!!!
+      {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
+      {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
+      {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
+      ];
+//jeśli nan to price wypisać !!! todo
     $scope.showClearFilter = false;
 
     //parametry sidebara
@@ -190,6 +195,11 @@ angular.module('FormApp', [])
     };
 
     $scope.textInfo = "";
+    //przekaż dane z sidebara do textarea
+    $scope.copySidebar = function () {
+      console.log("sidebar copied");
+      $scope.textInfo = $scope.detailPrice;
+    };
 
     $scope.toggleServices = function () {
       if (!$scope.showServices) {
@@ -199,15 +209,14 @@ angular.module('FormApp', [])
       }
     };
 
-    $scope.filters = {};
     $scope.showParameters = true;
     //todo - przelicz selected hardness
 
-;
     $scope.monthlyTextNumber = 0;
 
     $scope.countAll = function () {
-      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount /1000);
+      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount /1000) * $scope.textCount;
+      $scope.detailPriceMessage = "dupa";
     }
   });
 

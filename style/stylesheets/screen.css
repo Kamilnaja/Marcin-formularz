@@ -180,7 +180,7 @@ section {
 select {
   border: 1px solid orange;
   min-width: 150px;
-  height: 30px;
+  height: 40.166px;
 }
 @media (min-width: 992px) {
   /* line 161, ../sass/screen.scss */
@@ -191,7 +191,6 @@ select {
 
 /* line 170, ../sass/screen.scss */
 input {
-  height: 30px;
   border: 1px solid orange;
   padding: 10px;
 }
@@ -486,21 +485,27 @@ input {
     margin-bottom: 15px;
   }
 }
+/* line 443, ../sass/screen.scss */
+.parameters .col-md-4 p {
+  display: inline-block;
+  line-height: 1;
+  margin-top: 4px;
+}
 @media (min-width: 992px) {
   /* line 443, ../sass/screen.scss */
   .parameters .col-md-4 p {
-    min-height: 40px;
+    min-height: 27px;
   }
 }
 
-/* line 450, ../sass/screen.scss */
+/* line 454, ../sass/screen.scss */
 .text-variable-item.non-selected {
   -webkit-filter: opacity(0.2);
   filter: opacity(0.2);
   transition: 0.3s ease;
 }
 
-/* line 456, ../sass/screen.scss */
+/* line 460, ../sass/screen.scss */
 .active {
   -webkit-filter: none !important;
   filter: none !important;

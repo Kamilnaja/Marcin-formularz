@@ -161,14 +161,14 @@ section {
 select {
   border: 1px solid orange;
   min-width: 150px;
-  height: 30px;
+  height: 40.166px;
   @media(min-width: 992px) {
     width: 100%;
   }
 }
 
 input {
-  height: 30px;
+  //height: 30px;
   border: 1px solid orange;
   padding: 10px;
   @media(min-width: 992px) {
@@ -441,8 +441,12 @@ input {
     margin-bottom: 15px;
   }
   p {
+    display: inline-block;
+    line-height: 1;
+    margin-top: 4px;
+
     @media(min-width: 992px) {
-      min-height: 40px;
+      min-height: 27px;
     }
   }
 }
