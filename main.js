@@ -57,20 +57,45 @@ angular.module('FormApp', [])
 
     //price - ustaw stawkę za 1000 znaków dla kategorii
     $scope.services = [
-      {id: 1, name: "artykuły poradnikowe", price: 10, class: "sprite-Image-8"},
-      {id: 2, name: "artykuły informacyjne", price: 17, class: "sprite-Image-9"},
-      {id: 3, name: "artykuły specjalistyczne", price: 30, class: "sprite-Image-10"},
+      {
+        id: 1,
+        name: "artykuły poradnikowe",
+        price: 10,
+        class: "sprite-Image-8"
+      },
+      {
+        id: 2,
+        name: "artykuły informacyjne",
+        price: 17,
+        class: "sprite-Image-9"
+      },
+      {
+        id: 3,
+        name: "artykuły specjalistyczne",
+        price: 30,
+        class: "sprite-Image-10"
+      },
       {
         id: 4,
-        name: "content reklamowy",
-        price: "Treści reklamowe. Wycena indywidualna – określ: ulotki (50 zł za 1500 zzs), artykuły do gazet (40 zł/1k zzs), broszury (50 zł za 1500 zzs).",
-        class: "sprite-Image-11"
+        name: "Content reklamowy",
+        price: "nie",
+        class: "sprite-Image-11",
+        infoTitle: "Treści reklamowe. określ rodzaj",
+        infoList: [
+          "ulotki: (50 zł za 1500 zzs)",
+          "artykuły do gazet (40 zł/1k zzs)",
+          "broszury (50 zł za 1500 zzs)."
+        ]
       },
       {id: 5, name: "teksty seo", price: 15, class: "sprite-Image-12"},
       {
         id: 6,
         name: "prowadzenie blogów",
-        price: "Prowadzenie bloga – doprecyzuj: ile wpisów miesięcznie, ich objętość. Stawka bazowa za 4 wpisy w miesiącu: 300 zł netto/mc",
+        price: "nie",
+        infoTitle: "Prowadzenie bloga  – doprecyzuj: ile wpisów miesięcznie",
+        infoList: [
+          "Stawka bazowa za 4 wpisy w miesiącu: 300 zł netto/mc"
+        ],
         class: "sprite-Image-13"
       },
       {id: 7, name: "opisy kategorii i produktów", price: 12, class: "sprite-Image-14"},
@@ -80,20 +105,25 @@ angular.module('FormApp', [])
       {
         id: 11,
         name: "Prowadzenie fanpage",
-        price: "Cena zależy od ilości wpisów. Stawka bazowa: 300 zł netto za 4 wpisy w miesiącu i moderację komentarzy. Stawka rośnie +25 zł z każdym wpisem.",
-        class: "sprite-Image-18"
+        price: "nie",
+        infoTitle: "Cena zależy od ilości wpisów",
+        infoList: [
+          "Stawka bazowa: 300 zł netto za 4 wpisy w miesiącu i moderację komentarzy",
+          "Stawka rośnie +25 zł z każdym wpisem."],
+          class: "sprite-Image-18"
       },
-      {
-        id: 12,
-        name: "Usługa indywidualna",
-        price: "Usługa indywidualna. Napisz, by dowiedzieć się więcej",
-        class: "sprite-Image-19"
-      },
-      //todo - dodać obrazek do itemów poniżej!!!
-      {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
-      {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
-      {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
-    ];
+          {
+            id: 12,
+            name: "Usługa indywidualna",
+            price: "nie",
+            infoTitle: "Usługa wyceniana indywidualnie. Napisz do nas, by dowiedzieć się więcej",
+            class: "sprite-Image-19"
+          },
+          //todo - dodać obrazek do itemów poniżej!!!
+          {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
+          {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
+          {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
+        ];
 //jeśli nan to price wypisać !!! todo
     $scope.showClearFilter = false;
 
@@ -117,7 +147,9 @@ angular.module('FormApp', [])
     $scope.setBase = function (item) {
       // po kliknięciu w item sprawdź, czy ma wartość liczbową. Jeśli nie, pokaż specjalne big info
       if (isNaN(item.price)) {
-        $scope.bigInfo = item.price;
+        $scope.bigInfoName = item.name;
+        $scope.bigInfoTitle = item.infoTitle;
+        $scope.bigInfoList = item.infoList;
         $scope.sidebarDetails = false;
         $scope.sidebarBigInfo = true;
       } else {
@@ -178,24 +210,22 @@ angular.module('FormApp', [])
         $scope.time.selected.counter *
         $scope.materials.selected.counter *
         $scope.textBonus *
-        ($scope.letterCount / 1000)*
+        ($scope.letterCount / 1000) *
         $scope.textCount;
 
       $scope.detailPriceMessage =
-        " Rodzaj tekstów: " + $scope.selectedCategory +
+        "Powyżej wpisz tekst wiadomości \n " +
+        "Rodzaj tekstów: " + $scope.selectedCategory +
         "  \n Ilość znaków w jednym tekście: " + $scope.letterCount +
-        "  \n Skomplikowanie tematyki: " + $scope.hardness.selected.counter +
-        "  \n Dostarczone materiały: " + $scope.materials.selected.counter +
-        "  \n Czas realizacji: " + $scope.time.selected.counter +
+        "  \n Skomplikowanie tematyki: " + $scope.hardness.selected.name +
+        "  \n Dostarczone materiały: " + $scope.materials.selected.name +
+        "  \n Czas realizacji: " + $scope.time.selected.name +
         "  \n Branża: " + $scope.trades.selected.counter +
         "  \n Ilość tekstów razem: " + $scope.textCount +
         "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
         "  \n Sugerowana wycena za zlecenie: " + Math.floor($scope.detailPrice);
-
-
       console.log($scope.detailPriceMessage);
     };
-
 
 
   });

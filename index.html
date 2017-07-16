@@ -20,9 +20,19 @@
           class="big-info"
           ng-show=sidebarBigInfo
       >
-        {{bigInfo}}
+        <h2>{{bigInfoName}}</h2>
+        <h3>{{bigInfoTitle}}</h3>
+        <ul>
+          <li ng-repeat="item in bigInfoList">
+          {{item}}
+          </li>
+        </ul>
+
       </div>
-      <div class="detailed-info" ng-show=sidebarDetails>
+      <div
+          class="detailed-info"
+          ng-show=sidebarDetails
+      >
         <h2 class="centered">Podsumowanie</h2>
         <h3>Rodzaj tekstów</h3>
         <p class="value">
