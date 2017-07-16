@@ -227,6 +227,7 @@ input {
   .sidebar {
     position: fixed;
     right: 0;
+    top: 10px;
   }
 }
 
@@ -239,14 +240,14 @@ input {
   padding: 5px 10px;
   width: auto;
   margin-top: 10px;
-
 }
 
 .detailed-info,
 .big-info {
   border: 1px solid black;
   padding: 15px;
-  font-size: 18px;
+  padding-top: 5px;
+  font-size: 15px;
 
 }
 
@@ -331,13 +332,13 @@ input {
 
 .sidebar {
 
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   h3 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
   }
   h4 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
   }
   .value {

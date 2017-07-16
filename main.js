@@ -1,7 +1,9 @@
 angular.module('FormApp', [])
   .controller('FormAppController', function ($scope) {
 
-    $scope.letterCount = "";
+    $scope.letterCount = 1000;
+    $scope.textCount = 1000;
+
     $scope.showServices = true;
     $scope.hardness = [
       {id: 1, name: "łatwy", counter: 1},
@@ -97,23 +99,17 @@ angular.module('FormApp', [])
 
     //parametry sidebara
 
-
     $scope.sidebarDetail = false;
     $scope.sidebarBigInfo = false;
 
     //parametry do przeliczenia w widoku
     $scope.base = 15;
-    $scope.letterCount = 1000;
-    $scope.monthlyTextNumber = "";
-    $scope.yearlyTextNumber = "";
-
 
     $scope.setActive = function ($index) {
       $scope.selectedIndex = $index;
       console.log($index);
       //nadaj wszystkim elementom klasę nieaktywną
       $('.text-variable-item').addClass('non-selected');
-
     };
 
 
@@ -142,66 +138,26 @@ angular.module('FormApp', [])
     $scope.monthlyTextNumberAwesomebonus = 1;
     $scope.yearlyTextNumberAwesomebonus = 1;
 
-
-    $scope.showClearFilterButton = function () {
-      $scope.showClearFilter = true;
-    };
-    $scope.hideClearFilterButton = function () {
-      $scope.showClearFilter = false;
-    };
-    //ustawia okres współpracy po kliknięciu w item
-    $scope.setPeriod = function (number) {
-      $scope.period = number;
-      console.log(number);
-      if ($scope.period === 1) {
-
-      }
-    };
-
-    $scope.countYearlyBonus = function () {
-      //resetuj bonus miesięczny
-      $scope.monthlyTextNumberAwesomebonus = 1;
-      $scope.monthlyTextNumber = 0;
-      $scope.yearlyTextNumberAwesomebonus = 1;
-
-      if ($scope.yearlyTextNumber < 5) {
-        $scope.yearlyTextNumberAwesomebonus = 1;
+    $scope.textCount = 1;
+    $scope.textBonus = 1.2;
+    $scope.countTextBonus = function () {
+      if ($scope.textCount < 5) {
+        $scope.textBonus = 1.2;
       } else if
-      (6 <= $scope.yearlyTextNumber && $scope.yearlyTextNumber >= 10) {
-        $scope.yearlyTextNumberAwesomebonus = 0.8;
+      (6 > $scope.textCount && $scope.textCount <= 10) {
+        $scope.textBonus = 0.9;
       }
-      else {
-        $scope.yearlyTextNumberAwesomebonus = 0.6;
+      else if ($scope.textCount > 10) {
+        $scope.textBonus = 0.8;
       }
-      console.log($scope.yearlyTextNumberAwesomebonus, $scope.yearlyTextNumber, $scope.monthlyTextNumber);
-    };
-
-    $scope.countMonthlyBonus = function () {
-      //resetuj bonus roczny
-      $scope.yearlyTextNumberAwesomebonus = 1;
-      $scope.yearlyTextNumber = 0;
-      console.log($scope.monthlyTextNumber);
-      $scope.monthlyTextNumberAwesomebonus = 1;
-
-      if ($scope.monthlyTextNumber < 5) {
-        $scope.monthlyTextNumberAwesomebonus = 1;
-      } else if
-      (6 <= $scope.monthlyTextNumber && $scope.monthlyTextNumber >= 10) {
-        $scope.monthlyTextNumberAwesomebonus = 0.8;
-      }
-      else {
-        $scope.monthlyTextNumberAwesomebonus = 0.6;
-        //zresetuj bonus roczny
-      }
-
-      console.log($scope.yearlyTextNumberAwesomebonus, $scope.yearlyTextNumber);
     };
 
     $scope.textInfo = "";
     //przekaż dane z sidebara do textarea
+
     $scope.copySidebar = function () {
       console.log("sidebar copied");
-      $scope.textInfo = $scope.detailPrice;
+      $scope.textInfo = $scope.detailPriceMessage;
     };
 
     $scope.toggleServices = function () {
@@ -215,14 +171,34 @@ angular.module('FormApp', [])
     $scope.showParameters = true;
     //todo - przelicz selected hardness
 
-    $scope.monthlyTextNumber = 0;
-
     $scope.countAll = function () {
-      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount / 1000) * $scope.textCount;
-      $scope.detailPriceMessage = "dupa";
-    }
-  });
+      $scope.detailPrice =
+        $scope.services.selected *
+        $scope.hardness.selected.counter *
+        $scope.time.selected.counter *
+        $scope.materials.selected.counter *
+        $scope.textBonus *
+        ($scope.letterCount / 1000)*
+        $scope.textCount;
 
+      $scope.detailPriceMessage =
+        " Rodzaj tekstów: " + $scope.selectedCategory +
+        "  \n Ilość znaków w jednym tekście: " + $scope.letterCount +
+        "  \n Skomplikowanie tematyki: " + $scope.hardness.selected.counter +
+        "  \n Dostarczone materiały: " + $scope.materials.selected.counter +
+        "  \n Czas realizacji: " + $scope.time.selected.counter +
+        "  \n Branża: " + $scope.trades.selected.counter +
+        "  \n Ilość tekstów razem: " + $scope.textCount +
+        "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
+        "  \n Sugerowana wycena za zlecenie: " + Math.floor($scope.detailPrice);
+
+
+      console.log($scope.detailPriceMessage);
+    };
+
+
+
+  });
 $(document).ready(function () {
   $('.hover').hover(function () {
     $(this).addClass('flip');

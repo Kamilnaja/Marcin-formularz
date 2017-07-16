@@ -24,7 +24,7 @@
       </div>
       <div class="detailed-info" ng-show=sidebarDetails>
         <h2 class="centered">Podsumowanie</h2>
-        <h3>Rodzaj tekstu</h3>
+        <h3>Rodzaj tekstów</h3>
         <p class="value">
           {{selectedCategory}}
         </p>
@@ -55,6 +55,11 @@
           {{trades.selected.name}}
         </div>
 
+        <h4>Ilość tekstów</h4>
+        <div class="value">
+          {{textCount}}
+        </div>
+
         <h3 class=" centered">Stawka bazowa za 1000 znaków</h3>
         <div class="value centered">
           {{services.selected}}
@@ -67,7 +72,8 @@
         <button
             class="btn btn-blue-standard"
             ng-click="copySidebar()"
-        >Kopiuj do wiadomości</button>
+        >Kopiuj do wiadomości
+        </button>
       </div>
     </div>
 
@@ -169,7 +175,7 @@
                    placeholder="1"
                    min="1"
                    ng-model="textCount"
-                   ng-change="countAll()"
+                   ng-change="countAll(); countTextBonus();"
             >
           </div>
         </div>
@@ -213,7 +219,10 @@
                 name="tresc"
                 id="main-message"
                 cols="30" rows="10"
-                ng-model="textInfo"></textarea>
+                ng-model="textInfo"
+                placeholder="Wpisz treść wiadomości. Możesz tez skopiować dane z podsumowania formularza po prawej stronie"
+            >
+            </textarea>
           </div>
         </div>
         <div class="row submit-section">
