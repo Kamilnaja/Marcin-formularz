@@ -80,7 +80,7 @@ angular.module('FormApp', [])
         name: "Content reklamowy",
         price: "nie",
         class: "sprite-Image-11",
-        infoTitle: "Treści reklamowe. określ rodzaj",
+        infoTitle: "Napisz do nas, by otrzymać indywidualną wycenę. Orientacyjna wycena to:",
         infoList: [
           "ulotki: (50 zł za 1500 zzs)",
           "artykuły do gazet (40 zł/1k zzs)",
@@ -110,20 +110,20 @@ angular.module('FormApp', [])
         infoList: [
           "Stawka bazowa: 300 zł netto za 4 wpisy w miesiącu i moderację komentarzy",
           "Stawka rośnie +25 zł z każdym wpisem."],
-          class: "sprite-Image-18"
+        class: "sprite-Image-18"
       },
-          {
-            id: 12,
-            name: "Usługa indywidualna",
-            price: "nie",
-            infoTitle: "Usługa wyceniana indywidualnie. Napisz do nas, by dowiedzieć się więcej",
-            class: "sprite-Image-19"
-          },
-          //todo - dodać obrazek do itemów poniżej!!!
-          {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
-          {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
-          {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
-        ];
+      {
+        id: 12,
+        name: "Usługa indywidualna",
+        price: "nie",
+        infoTitle: "Usługa wyceniana indywidualnie. Napisz do nas, by dowiedzieć się więcej",
+        class: "sprite-Image-19"
+      },
+      //todo - dodać obrazek do itemów poniżej!!!
+      {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
+      {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
+      {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
+    ];
 //jeśli nan to price wypisać !!! todo
     $scope.showClearFilter = false;
 
@@ -152,19 +152,23 @@ angular.module('FormApp', [])
         $scope.bigInfoList = item.infoList;
         $scope.sidebarDetails = false;
         $scope.sidebarBigInfo = true;
+        $scope.showParameters = false;
       } else {
         $scope.sidebarDetails = true;
         $scope.sidebarBigInfo = false;
         $scope.selectedCategory = item.name;
         $scope.services.selected = item.price;
-      }
-      //pokaż button, po wybraniu jakiegoś itema zawsze
-
-      if (!item.price) {
-        $scope.showParameters = false;
-      } else {
         $scope.showParameters = true;
       }
+    };
+    $scope.resetSelectedValues = function () {
+      $scope.textInfo = "";
+      $scope.hardness.selected = "";
+      $scope.materials.selected = "";
+      $scope.time.selected = "";
+      $scope.trades.selected = "";
+      $scope.letterCount = 1000;
+      $scope.textCount = 1;
     };
 
     $scope.monthlyTextNumberAwesomebonus = 1;

@@ -512,3 +512,13 @@ input {
   -webkit-filter: none !important;
   filter: none !important;
 }
+
+/* line 465, ../sass/screen.scss */
+.nonvisible {
+  visibility: hidden;
+}
+
+/* line 468, ../sass/screen.scss */
+.reset {
+  height: 40.4px;
+}
