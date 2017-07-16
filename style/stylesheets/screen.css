@@ -492,3 +492,16 @@ input {
     min-height: 40px;
   }
 }
+
+/* line 450, ../sass/screen.scss */
+.text-variable-item.non-selected {
+  -webkit-filter: opacity(0.2);
+  filter: opacity(0.2);
+  transition: 0.3s ease;
+}
+
+/* line 456, ../sass/screen.scss */
+.active {
+  -webkit-filter: none !important;
+  filter: none !important;
+}

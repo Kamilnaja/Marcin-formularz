@@ -446,3 +446,14 @@ input {
     }
   }
 }
+
+.text-variable-item.non-selected {
+  -webkit-filter: opacity(0.2);
+  filter: opacity(0.2);
+  transition: 0.3s ease;
+}
+
+.active {
+  -webkit-filter: none !important;
+  filter: none !important;
+}

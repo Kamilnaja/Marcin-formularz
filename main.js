@@ -78,9 +78,20 @@ angular.module('FormApp', [])
 
     //parametry do przeliczenia w widoku
     $scope.base = 15;
-
-    $scope.monthlyTextNumber = "";
+    $scope.letterCount = 1000;
+    $scope.monthlyTextNumber = "" ;
     $scope.yearlyTextNumber = "";
+
+
+    $scope.setActive = function ($index) {
+      $scope.selectedIndex = $index;
+      console.log($index);
+      //nadaj wszystkim elementom klasę nieaktywną
+      $('.text-variable-item').addClass('non-selected');
+      // // x.removeClass('non-selected');
+      // console.log(this);
+    };
+
 
     //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (item) {
@@ -192,27 +203,11 @@ angular.module('FormApp', [])
     $scope.showParameters = true;
     //todo - przelicz selected hardness
 
-    $scope.checkParameters = function () {
-      console.log($scope.materials.selected, $scope.hardness.selected, $scope.time.selected, $scope.trades.selected, $scope.seo.selected);
-    };
-
-    $scope.showAllParameters = function () {
-
-      $scope.showParameters = true;
-    };
+;
     $scope.monthlyTextNumber = 0;
+
     $scope.countAll = function () {
-      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus;
-      console.log(
-        "services = " + $scope.services.selected +
-        "\n trudność = " + $scope.hardness.selected.counter +
-        "\n czy na szybko " + $scope.time.selected.counter +
-        "\n materiały " + $scope.materials.selected.counter +
-        "\n branża " + $scope.trades.selected.counter +
-        "\n Stawka " + $scope.detailPrice +
-        "\n Bonusmiesięczny " + $scope.monthlyTextNumberAwesomebonus +
-        "\n BonusRoczny " + $scope.yearlyTextNumberAwesomebonus
-      );
+      $scope.detailPrice = $scope.services.selected * $scope.hardness.selected.counter * $scope.time.selected.counter * $scope.materials.selected.counter * $scope.yearlyTextNumberAwesomebonus * $scope.monthlyTextNumberAwesomebonus * ($scope.letterCount /1000);
     }
   });
 
