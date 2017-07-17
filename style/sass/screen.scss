@@ -228,10 +228,12 @@ input {
   .sidebar {
     position: fixed;
     right: 0;
-    top: 10px;
+    top: 5px;
   }
 }
-
+h4, h5 {
+  font-weight: bold;
+}
 .submit-section {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -334,14 +336,6 @@ input {
 .sidebar {
 
   padding-bottom: 20px;
-  h3 {
-    font-size: 15px;
-    font-weight: bold;
-  }
-  h4 {
-    font-size: 14px;
-    font-weight: normal;
-  }
   .value {
     color: $blue;
     min-height: 15px;

@@ -22,7 +22,7 @@ angular.module('FormApp', [])
       {id: 1, name: "tak", counter: 1},
       {id: 2, name: "nie", counter: 1.1}
     ];
-    $scope.materials.selected = 1;
+    $scope.materials.selected = "";
 
     $scope.seo = [
       {id: 1, name: "Tak", counter: ""},
@@ -124,10 +124,8 @@ angular.module('FormApp', [])
       {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
       {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
     ];
-//jeśli nan to price wypisać !!! todo
-    $scope.showClearFilter = false;
 
-    //parametry sidebara
+    $scope.showClearFilter = false;
 
     $scope.sidebarDetail = false;
     $scope.sidebarBigInfo = false;
@@ -137,13 +135,13 @@ angular.module('FormApp', [])
     //kwota rabatu
     $scope.bonusNumber = 0;
 
+    $scope.textCount = 1;
+
     $scope.setActive = function ($index) {
       $scope.selectedIndex = $index;
-      console.log($index);
       //nadaj wszystkim elementom klasę nieaktywną
       $('.text-variable-item').addClass('non-selected');
     };
-
 
     //ustala cenę bazową po kliknięciu w item
     $scope.setBase = function (item) {
@@ -163,6 +161,8 @@ angular.module('FormApp', [])
         $scope.showParameters = true;
       }
     };
+
+
     $scope.resetSelectedValues = function () {
       $scope.textInfo = "";
       $scope.hardness.selected = "";
@@ -194,7 +194,6 @@ angular.module('FormApp', [])
     //przekaż dane z sidebara do textarea
 
     $scope.copySidebar = function () {
-      console.log("sidebar copied");
       $scope.textInfo = $scope.detailPriceMessage;
     };
 
@@ -216,11 +215,16 @@ angular.module('FormApp', [])
         $scope.time.selected.counter *
         $scope.materials.selected.counter *
         $scope.textBonus *
+        $scope.trades.selected.counter *
         ($scope.letterCount / 1000) *
         $scope.textCount;
       $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
-      console.log("bonus = " +  $scope.bonusNumber);
-
+      if ( isNaN($scope.detailPrice)) {
+        $scope.detailPrice = "uzupełnij wszystkie pola";
+      } else {
+        $scope.detailPrice = Math.floor($scope.detailPrice);
+      }
+    console.log($scope.detailPrice);
       $scope.detailPriceMessage =
         "Powyżej wpisz tekst wiadomości \n " +
         "Rodzaj tekstów: " + $scope.selectedCategory +
@@ -231,8 +235,8 @@ angular.module('FormApp', [])
         "  \n Branża: " + $scope.trades.selected.counter +
         "  \n Ilość tekstów razem: " + $scope.textCount +
         "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
-        "  \n Sugerowana wycena za zlecenie: " + Math.floor($scope.detailPrice);
-      console.log($scope.detailPriceMessage);
+        "  \n Sugerowana wycena za zlecenie: " + $scope.detailPrice;
+
     };
 
 
