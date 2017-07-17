@@ -134,6 +134,8 @@ angular.module('FormApp', [])
 
     //parametry do przeliczenia w widoku
     $scope.base = 15;
+    //kwota rabatu
+    $scope.bonusNumber = 0;
 
     $scope.setActive = function ($index) {
       $scope.selectedIndex = $index;
@@ -216,6 +218,8 @@ angular.module('FormApp', [])
         $scope.textBonus *
         ($scope.letterCount / 1000) *
         $scope.textCount;
+      $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
+      console.log("bonus = " +  $scope.bonusNumber);
 
       $scope.detailPriceMessage =
         "Powyżej wpisz tekst wiadomości \n " +

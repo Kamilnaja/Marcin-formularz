@@ -80,7 +80,10 @@
         <h4 class="centered"><b>Stawka bazowa za 1000 znaków</b></h4>
         <div class="value centered">
           {{services.selected}}
-
+        </div>
+        <h4 class="centered"><b>Kwota rabatu</b></h4>
+        <div class="value centered">
+         <p ng-if="bonusNumber > 0">{{bonusNumber | currency: "PLN" }}</p>
         </div>
         <h2 class="centered">Sugerowana wycena za zlecenie</h2>
         <p class="centered">
