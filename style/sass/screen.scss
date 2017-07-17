@@ -114,6 +114,7 @@ body {
   input, select {
     @media(max-width: 768px) {
       width: 100%;
+      margin-bottom: 20px;
     }
   }
 }
@@ -462,9 +463,21 @@ input {
   -webkit-filter: none !important;
   filter: none !important;
 }
+
 .nonvisible {
   visibility: hidden;
 }
+
 .reset {
   height: 40.4px;
+  background-color: orangered;
+  border: orangered;
+  &:hover {
+    border: 1px solid orangered;
+  }
+}
+
+textarea {
+  resize: none;
+  padding: 5px;
 }
