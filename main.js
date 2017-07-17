@@ -209,6 +209,16 @@ angular.module('FormApp', [])
     //todo - przelicz selected hardness
 
     $scope.countAll = function () {
+      //fucking awesome immortal tests for this app - do not remove
+      // console.log ( "serwis " + $scope.services.selected);
+      // console.log("trudnośc "  + $scope.hardness.selected.counter);
+      // console.log("materiały" + $scope.materials.selected.counter);
+      // console.log(    "textbonus" +    $scope.textBonus)
+      // console.log("bonsu za czas" +  $scope.time.selected.counter);
+      // console.log("trade" + $scope.trades.selected.counter );
+      // console.log("litery " + $scope.letterCount / 1000);
+      // console.log("ile tekstów " + $scope.textCount);
+
       $scope.detailPrice =
         $scope.services.selected *
         $scope.hardness.selected.counter *
@@ -218,13 +228,14 @@ angular.module('FormApp', [])
         $scope.trades.selected.counter *
         ($scope.letterCount / 1000) *
         $scope.textCount;
+      //oblicz bonus za ilośc tekstów
       $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
       if ( isNaN($scope.detailPrice)) {
         $scope.detailPrice = "uzupełnij wszystkie pola";
       } else {
         $scope.detailPrice = Math.floor($scope.detailPrice);
       }
-    console.log($scope.detailPrice);
+
       $scope.detailPriceMessage =
         "Powyżej wpisz tekst wiadomości \n " +
         "Rodzaj tekstów: " + $scope.selectedCategory +
@@ -236,8 +247,8 @@ angular.module('FormApp', [])
         "  \n Ilość tekstów razem: " + $scope.textCount +
         "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
         "  \n Sugerowana wycena za zlecenie: " + $scope.detailPrice;
-
     };
+
 
 
   });
