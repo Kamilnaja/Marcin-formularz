@@ -25,33 +25,33 @@ angular.module('FormApp', [])
     $scope.materials.selected = "";
 
     $scope.seo = [
-      {id: 1, name: "Tak", counter: ""},
-      {id: 2, name: "Nie", counter: ""}
+      {id: 1, name: "tak", counter: ""},
+      {id: 2, name: "nie", counter: ""}
     ];
     $scope.seo.selected = "";
 
     $scope.trades = [
-      {id: 1, name: "Bankowość", counter: 1.5},
-      {id: 2, name: "Ubezpieczenia", counter: 1.5},
-      {id: 3, name: "Finanse", counter: 1.5},
-      {id: 4, name: "Technika", counter: 1.5},
-      {id: 5, name: "Przemysł", counter: 1.5},
-      {id: 6, name: "Telekomunikacja", counter: 1.5},
-      {id: 7, name: "Technologie", counter: 1.5},
-      {id: 8, name: "Przemysł", counter: 1.5},
+      {id: 1, name: "bankowość", counter: 1.5},
+      {id: 2, name: "ubezpieczenia", counter: 1.5},
+      {id: 3, name: "finanse", counter: 1.5},
+      {id: 4, name: "technika", counter: 1.5},
+      {id: 5, name: "przemysł", counter: 1.5},
+      {id: 6, name: "telekomunikacja", counter: 1.5},
+      {id: 7, name: "technologie", counter: 1.5},
+      {id: 8, name: "przemysł", counter: 1.5},
       {id: 10, name: "IT", counter: 1},
-      {id: 11, name: "Budownictwo", counter: 1},
-      {id: 12, name: "E-commerce", counter: 1},
-      {id: 13, name: "Marketing", counter: 1},
-      {id: 14, name: "Lifestyle", counter: 1},
+      {id: 11, name: "budownictwo", counter: 1},
+      {id: 12, name: "e-commerce", counter: 1},
+      {id: 13, name: "marketing", counter: 1},
+      {id: 14, name: "lifestyle", counter: 1},
       {id: 15, name: "moda", counter: 1},
-      {id: 16, name: "Dom i wnętrze", counter: 1},
-      {id: 17, name: "Żywność i napoje", counter: 1},
-      {id: 18, name: "Rozrywka", counter: 1},
-      {id: 19, name: "Rynek dziecięcy", counter: 1},
-      {id: 20, name: "Transport", counter: 1.2},
-      {id: 21, name: "Logistyka", counter: 1.2},
-      {id: 22, name: "Motoryzacja", counter: 1.2}
+      {id: 16, name: "dom i wnętrze", counter: 1},
+      {id: 17, name: "żywność i napoje", counter: 1},
+      {id: 18, name: "rozrywka", counter: 1},
+      {id: 19, name: "rynek dziecięcy", counter: 1},
+      {id: 20, name: "transport", counter: 1.2},
+      {id: 21, name: "logistyka", counter: 1.2},
+      {id: 22, name: "motoryzacja", counter: 1.2}
     ];
     $scope.trades.selected = "";
 
@@ -77,7 +77,7 @@ angular.module('FormApp', [])
       },
       {
         id: 4,
-        name: "Content reklamowy",
+        name: "content reklamowy",
         price: "nie",
         class: "sprite-Image-11",
         infoTitle: "Napisz do nas, by otrzymać indywidualną wycenę. Orientacyjna wycena to:",
@@ -99,12 +99,12 @@ angular.module('FormApp', [])
         class: "sprite-Image-13"
       },
       {id: 7, name: "opisy kategorii i produktów", price: 12, class: "sprite-Image-14"},
-      {id: 8, name: "Email marketing", price: 55, class: "sprite-Image-15"},
-      {id: 9, name: "Pisanie e-booków", price: 38, class: "sprite-Image-16"},
-      {id: 10, name: "Content na strony WWW", price: 25, class: "sprite-Image-17"},
+      {id: 8, name: "email marketing", price: 55, class: "sprite-Image-15"},
+      {id: 9, name: "pisanie e-booków", price: 38, class: "sprite-Image-16"},
+      {id: 10, name: "content na strony WWW", price: 25, class: "sprite-Image-17"},
       {
         id: 11,
-        name: "Prowadzenie fanpage",
+        name: "prowadzenie fanpage",
         price: "nie",
         infoTitle: "Cena zależy od ilości wpisów",
         infoList: [
@@ -114,15 +114,15 @@ angular.module('FormApp', [])
       },
       {
         id: 12,
-        name: "Usługa indywidualna",
+        name: "usługa indywidualna",
         price: "nie",
         infoTitle: "Usługa wyceniana indywidualnie. Napisz do nas, by dowiedzieć się więcej",
         class: "sprite-Image-19"
       },
       //todo - dodać obrazek do itemów poniżej!!!
-      {id: 13, name: "Tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
-      {id: 14, name: "Ghostwriting", price: 20, class: "sprite-Image-18"},
-      {id: 15, name: "Korekta i redakcja", price: "", class: "sprite-Image-19"}
+      {id: 13, name: "tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
+      {id: 14, name: "ghostwriting", price: 20, class: "sprite-Image-18"},
+      {id: 15, name: "korekta i redakcja", price: "", class: "sprite-Image-19"}
     ];
 
     $scope.showClearFilter = false;

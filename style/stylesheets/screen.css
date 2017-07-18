@@ -257,8 +257,6 @@ input {
 @media (min-width: 992px) {
   /* line 228, ../sass/screen.scss */
   .sidebar {
-    position: fixed;
-    right: 0;
     top: 5px;
   }
 }

@@ -15,7 +15,7 @@
     ng-controller="FormAppController"
 >
   <div class="row">
-    <div class="col-md-3 sidebar">
+    <div class="col-md-3 sidebar pull-right">
       <div
           class="big-info"
           ng-show=sidebarBigInfo
@@ -77,7 +77,7 @@
           {{textCount}}
         </div>
         <p><b>
-        Poproszę o wycenę usług seo:</b>  {{seo.selected.name}}
+          Poproszę o wycenę usług seo:</b> {{seo.selected.name}}
         </p>
         <h4><b>Stawka bazowa za 1000 znaków</b></h4>
         <div class="value">
@@ -85,7 +85,7 @@
         </div>
         <h4><b>Kwota rabatu</b></h4>
         <div class="value">
-         <p ng-if="bonusNumber > 0">{{bonusNumber | currency: "PLN" }}</p>
+          <p ng-if="bonusNumber > 0">{{bonusNumber | currency: "PLN" }}</p>
         </div>
 
         <h4 class="centered">Sugerowana wycena za zlecenie</h4>
@@ -127,7 +127,7 @@
             <h2 class="header-info">Określ parametry zlecenia
               <div class="header-info-after"></div>
             </h2>
-            <p>Lorem ipsum dolor constectetur sit amet</p>
+            <p>Wybiesz wszystkie opcje, by skorzystać z wyceny</p>
           </div>
         </div>
         <div
