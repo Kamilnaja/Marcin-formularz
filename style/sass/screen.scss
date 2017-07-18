@@ -112,7 +112,7 @@ body {
 
 .parameters, .personal-data {
   input, select {
-    @media(max-width: 768px) {
+    @media(max-width: 992px) {
       width: 100%;
       margin-bottom: 20px;
     }
@@ -222,6 +222,11 @@ input {
     background-color: #e5e5e5;
 
   }
+  @media(max-width: 992px) {
+    .btn {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 @media(min-width: 992px) {
@@ -231,9 +236,11 @@ input {
     top: 5px;
   }
 }
+
 h4, h5 {
   font-weight: bold;
 }
+
 .submit-section {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -292,7 +299,7 @@ h4, h5 {
 }
 
 .btn-orange-reversed {
-  border: 1px solid orange;
+  border: 2px solid orange;
   color: orange !important;
   background-color: white;
   width: 100%;
@@ -303,7 +310,7 @@ h4, h5 {
   padding-bottom: 5px;
   transition: 0.3s ease;
   &:hover {
-    border: 1px solid orange;
+    border: 2px solid orange;
     background-color: orange;
     color: white !important;
   }

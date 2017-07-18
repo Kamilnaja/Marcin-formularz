@@ -1,5 +1,5 @@
-angular.module('FormApp', [])
-  .controller('FormAppController', function ($scope) {
+angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
+  .controller('FormAppController', function ($scope, $document) {
 
     $scope.letterCount = 1000;
     $scope.textCount = 1000;
@@ -141,6 +141,10 @@ angular.module('FormApp', [])
       $scope.selectedIndex = $index;
       //nadaj wszystkim elementom klasę nieaktywną
       $('.text-variable-item').addClass('non-selected');
+      //przenieś do sekcji poniżej
+      var target1 = angular.element(document.getElementById("parameters"));
+      $document.scrollToElement(target1);
+
     };
 
     //ustala cenę bazową po kliknięciu w item
@@ -218,6 +222,18 @@ angular.module('FormApp', [])
       // console.log("trade" + $scope.trades.selected.counter );
       // console.log("litery " + $scope.letterCount / 1000);
       // console.log("ile tekstów " + $scope.textCount);
+      if (
+        $scope.hardness.selected &&
+        $scope.materials.selected &&
+        $scope.time.selected &&
+        $scope.trades.selected
+      ) {
+        console.log("all selected");
+        var target2 = angular.element(document.getElementById("send-form"));
+        $document.scrollToElement(target2);
+      } else {
+        console.log("not all");
+      }
 
       $scope.detailPrice =
         $scope.services.selected *
@@ -230,7 +246,7 @@ angular.module('FormApp', [])
         $scope.textCount;
       //oblicz bonus za ilośc tekstów
       $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
-      if ( isNaN($scope.detailPrice)) {
+      if (isNaN($scope.detailPrice)) {
         $scope.detailPrice = "uzupełnij wszystkie pola";
       } else {
         $scope.detailPrice = Math.floor($scope.detailPrice);
@@ -248,7 +264,6 @@ angular.module('FormApp', [])
         "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
         "  \n Sugerowana wycena za zlecenie: " + $scope.detailPrice;
     };
-
 
 
   });
