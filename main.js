@@ -1,8 +1,8 @@
 angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
   .controller('FormAppController', function ($scope, $document) {
 
-    $scope.letterCount = 1000;
-    $scope.textCount = 1000;
+    $scope.letterCount = 0;
+    $scope.textCount = 0;
 
     $scope.showServices = true;
     $scope.hardness = [
@@ -112,17 +112,18 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
           "Stawka rośnie +25 zł z każdym wpisem."],
         class: "sprite-Image-18"
       },
+
+      //todo - dodać obrazek do itemów poniżej!!!
+      {id: 13, name: "tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-20"},
+      {id: 14, name: "ghostwriting", price: 20, class: "sprite-Image-22"},
+      {id: 15, name: "korekta i redakcja", price: "", class: "sprite-Image-21"},
       {
         id: 12,
         name: "usługa indywidualna",
         price: "nie",
         infoTitle: "Usługa wyceniana indywidualnie. Napisz do nas, by dowiedzieć się więcej",
         class: "sprite-Image-19"
-      },
-      //todo - dodać obrazek do itemów poniżej!!!
-      {id: 13, name: "tłumaczenia tekstów technicznych", price: 30, class: "sprite-Image-17"},
-      {id: 14, name: "ghostwriting", price: 20, class: "sprite-Image-18"},
-      {id: 15, name: "korekta i redakcja", price: "", class: "sprite-Image-19"}
+      }
     ];
 
     $scope.showClearFilter = false;
@@ -144,7 +145,6 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
       //przenieś do sekcji poniżej
       var target1 = angular.element(document.getElementById("parameters"));
       $document.scrollToElement(target1);
-
     };
 
     //ustala cenę bazową po kliknięciu w item
@@ -198,6 +198,7 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
     //przekaż dane z sidebara do textarea
 
     $scope.copySidebar = function () {
+
       $scope.textInfo = $scope.detailPriceMessage;
     };
 
@@ -209,9 +210,12 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
       }
     };
 
-    $scope.showParameters = true;
     //todo - przelicz selected hardness
 
+    $scope.scrollToEnd = function () {
+      var target2 = angular.element(document.getElementById("send-form"));
+      $document.scrollToElement(target2);
+    };
     $scope.countAll = function () {
       //fucking awesome immortal tests for this app - do not remove
       // console.log ( "serwis " + $scope.services.selected);
@@ -228,11 +232,7 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
         $scope.time.selected &&
         $scope.trades.selected
       ) {
-        console.log("all selected");
-        var target2 = angular.element(document.getElementById("send-form"));
-        $document.scrollToElement(target2);
-      } else {
-        console.log("not all");
+        $scope.showFormButton = true;
       }
 
       $scope.detailPrice =

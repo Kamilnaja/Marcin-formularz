@@ -58,8 +58,8 @@
               <p>Ilość znaków w jednym tekście</p>
               <input type="number"
                      placeholder="1000"
-                     min="1000"
-                     step="500"
+                     min="0"
+                     step="100"
                      ng-model="letterCount"
                      ng-change="countAll()"
               >
@@ -107,7 +107,7 @@
             </div>
             <div class="col-md-4">
               <p>
-                Czy chcesz skorzystać z pozycjonowania witryny
+                Czy chcesz otrzymać ofertę pozycjonowania strony?
               </p>
               <select
                   ng-model="seo.selected"
@@ -137,6 +137,18 @@
                   ng-click="resetSelectedValues()"
               >
                 Resetuj wartości
+              </button>
+
+            </div>
+            <div class="col-md-4">
+              <p class="nonvisible reset-small">reset</p>
+              <button
+                  class="btn btn-blue-standard"
+                  href="#send-form"
+                  ng-click="scrollToEnd()"
+                  ng-show="showFormButton"
+              >
+                Przejdź do zamówienia
               </button>
             </div>
           </div>
@@ -282,7 +294,7 @@
           {{textCount}}
         </div>
         <p><b>
-          Poproszę o wycenę usług seo:</b> {{seo.selected.name}}
+          Zgadzam się na otrzymanie oferty profesjonalnej firmy SEO: </b> {{seo.selected.name}}
         </p>
         <h4><b>Stawka bazowa za 1000 znaków</b></h4>
         <div class="value">
