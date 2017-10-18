@@ -1,247 +1,109 @@
 <!doctype html>
 <html lang="en" ng-app="FormApp">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="style/stylesheets/screen.css">
 </head>
+
 <body>
-<div
-    class="container"
-    ng-controller="FormAppController"
->
-  <div class="row">
-    <div class="col-md-9">
-      <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz
-        orientacyjną wycenę swojego zlecenia.</p>
-      <h2 class="header-info">Wybierz usługę
-        <div class="header-info-after"></div>
-      </h2>
-      <section class="service row" id="service">
-        <div
-            class="col-md-4 col-xs-6 text-variable-item"
-            ng-repeat="x in services"
-            ng-click="setActive($index); setBase(x); countAll()"
-            ng-model="services.selected"
-            ng-class="{'active': $index == selectedIndex }"
-        >
-          <div>
-            <div class="sprite {{x.class}}"></div>
-            <p>{{x.name}}</p>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div ng-controller="FormAppController">
+          <p>Zapraszam Cię do skorzystania z autorskiego kalkulatora usług copywriterskich. Dzięki niemu poznasz orientacyjną
+            wycenę swojego zlecenia.</p>
+          <h2 class="header-info">Wybierz usługę
+            <div class="header-info-after"></div>
+          </h2>
+          <section class="service row" id="service">
+            <div class="col-md-4 col-xs-6 text-variable-item" ng-repeat="x in services" ng-click="setActive($index); setBase(x); countAll()"
+              ng-model="services.selected" ng-class="{'active': $index == selectedIndex }">
+              <div>
+                <div class="sprite {{x.class}}"></div>
+                <p>{{x.name}}</p>
+              </div>
+            </div>
+          </section>
+          <section class="parameters" id="parameters" du-smooth-scroll>
+            <form name="setParameters">
+              <div class="row">
+                <div class="col-md-12">
+                  <h2 class="header-info">Określ parametry zlecenia
+                    <div class="header-info-after"></div>
+                  </h2>
+                  <p>Wybiesz wszystkie opcje, by skorzystać z wyceny</p>
+                </div>
+              </div>
+              <div class="form-group" ng-show=showParameters>
+                <div class="col-md-4">
+                  <p>Ilość znaków w jednym tekście</p>
+                  <input type="number" placeholder="1000" min="0" step="100" ng-model="letterCount" ng-change="countAll()">
+                </div>
+                <div class="col-md-4">
+                  <p>
+                    Określ skomplikowanie tematyki
+                  </p>
+                  <select required ng-model="hardness.selected" ng-options="x.name for x in hardness" ng-change="countAll()"></select>
+                </div>
+                <div class=" col-md-4">
+                  <p>
+                    Dostarczenie materiałów bazowych
+                  </p>
+                  <select required ng-model="materials.selected" ng-options="x.name for x in materials" ng-change="countAll()"></select>
+                </div>
+                <div class="spacer"></div>
+                <div class="col-md-4">
+                  <p>Czas realizacji</p>
+                  <select ng-model="time.selected" ng-options="x.name for x in time" ng-change="countAll()" required></select>
+                </div>
+                <div class="col-md-4">
+                  <p>Określ branżę</p>
+                  <select ng-model="trades.selected" ng-options="x.name for x in trades" ng-change="countAll()" required></select>
+                </div>
+                <div class="col-md-4">
+                  <p>
+                    Czy chcesz otrzymać ofertę pozycjonowania strony?
+                  </p>
+                  <select ng-model="seo.selected" ng-options="x.name for x in seo" ng-change="countAll()" required></select>
+                </div>
+                <div class="spacer"></div>
+                <div class="col-md-4">
+                  <p>Ilość tekstów</p>
+                  <input type="number" placeholder="1" min="1" ng-model="textCount" ng-change="countAll(); countTextBonus();" required>
+                </div>
+                <div class="col-md-4">
+                  <p class="nonvisible">reset</p>
+                  <button class="btn btn-blue-standard reset" ng-click="resetSelectedValues()">
+                    Resetuj wartości
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <p class="nonvisible reset-small">reset</p>
+                  <button class="btn btn-blue-standard" href="#send-form" ng-click="scrollToEnd()" ng-show="showFormButton">
+                    Przejdź do zamówienia
+                  </button>
+                </div>
+              </div>
+            </form>
+          </section>
         </div>
-      </section>
+        <div ng-include="'personalData.html'"></div>
+      </div>
+      <!-- col-md-9 -->
 
-      <section
-          class="parameters"
-          id="parameters"
-          du-smooth-scroll
-      >
-        <form name="setParameters">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="header-info">Określ parametry zlecenia
-                <div class="header-info-after"></div>
-              </h2>
-              <p>Wybiesz wszystkie opcje, by skorzystać z wyceny</p>
-            </div>
-          </div>
-          <div
-              class="form-group"
-              ng-show=showParameters
-          >
-            <div class="col-md-4">
-              <p>Ilość znaków w jednym tekście</p>
-              <input type="number"
-                     placeholder="1000"
-                     min="0"
-                     step="100"
-                     ng-model="letterCount"
-                     ng-change="countAll()"
-              >
-            </div>
-            <div class="col-md-4">
-              <p>
-                Określ skomplikowanie tematyki
-              </p>
-              <select
-                  required
-                  ng-model="hardness.selected"
-                  ng-options="x.name for x in hardness"
-                  ng-change="countAll()"
-              ></select>
-            </div>
-            <div class=" col-md-4">
-              <p>
-                Dostarczenie materiałów bazowych
-              </p>
-              <select
-                  required
-                  ng-model="materials.selected"
-                  ng-options="x.name for x in materials"
-                  ng-change="countAll()"
-
-              ></select>
-            </div>
-            <div class="spacer"></div>
-            <div class="col-md-4">
-              <p>Czas realizacji</p>
-              <select ng-model="time.selected"
-                      ng-options="x.name for x in time"
-                      ng-change="countAll()"
-                      required
-              ></select>
-            </div>
-            <div class="col-md-4">
-              <p>Określ branżę</p>
-              <select
-                  ng-model="trades.selected"
-                  ng-options="x.name for x in trades"
-                  ng-change="countAll()"
-                  required
-              ></select>
-            </div>
-            <div class="col-md-4">
-              <p>
-                Czy chcesz otrzymać ofertę pozycjonowania strony?
-              </p>
-              <select
-                  ng-model="seo.selected"
-                  ng-options="x.name for x in seo"
-                  ng-change="countAll()"
-                  required
-              ></select>
-            </div>
-            <div class="spacer"></div>
-
-            <div class="col-md-4">
-              <p>Ilość tekstów</p>
-              <input type="number"
-                     placeholder="1"
-                     min="1"
-                     ng-model="textCount"
-                     ng-change="countAll(); countTextBonus();"
-                     required
-              >
-            </div>
-
-            <div class="col-md-4">
-              <p class="nonvisible">reset</p>
-
-              <button
-                  class="btn btn-blue-standard reset"
-                  ng-click="resetSelectedValues()"
-              >
-                Resetuj wartości
-              </button>
-
-            </div>
-            <div class="col-md-4">
-              <p class="nonvisible reset-small">reset</p>
-              <button
-                  class="btn btn-blue-standard"
-                  href="#send-form"
-                  ng-click="scrollToEnd()"
-                  ng-show="showFormButton"
-              >
-                Przejdź do zamówienia
-              </button>
-            </div>
-          </div>
-        </form>
-      </section>
-
-      <section class=" personal-data" id="send-form">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="header-info">Załączniki i uwagi
-              <div class="header-info-after"></div>
-            </h2>
-          </div>
-          <div class="col-md-12">
-            <p>Podaj swoje dane, abym mógł skontaktować się z Tobą i zaprezentować Ci swoją faktyczną ofertę.
-              Poniżej
-              możesz dopisać szczegóły zlecenia, a także pobrać i przesłać brief ułatwiający sprecyzowanie
-              swoich
-              copywriterskich potrzeb.</p>
-          </div>
-        </div>
-        <div class="row">
-          <form method="post" action="https://app.freshmail.com/pl/actions/subscribe/">
-            <input type="hidden" name="subscribers_list_hash" value="mtzrycdfgm"/><br/>
-            <div class="col-md-4">
-              <label for="name">
-                Imię i nazwisko
-              </label>
-              <br>
-              <input type="text" id="name">
-            </div>
-            <div class="col-md-4">
-              <span id="wycena"></span>
-              <label for="freshmail_email">Email</label>
-              <input type="text" id="freshmail_email" name="freshmail_email"/>
-            </div>
-            <div class="col-md-4">
-              <label for="fm_phone">Numer telefonu</label>
-              <input type="number" id="fm_phone" name="freshmail_custom_field[telefon]">
-            </div>
-            <div class="spacer"></div>
-            <div class="col-md-12">
-              <label for="fm_wiadomosc">Wiadomość</label>
-              <textarea
-                  id="fm_wiadomosc"
-                  name="freshmail_custom_field[wiadomosc]"
-                  ng-model="textInfo"
-                  placeholder="Wpisz treść wiadomości. Możesz tez skopiować dane z podsumowania formularza po prawej stronie"
-                  class="form-control"
-                  rows="10"
-              ></textarea>
-              <br/>
-            </div>
-        </div>
-
-        <div class="row submit-section">
-          <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2">
-            <a
-                class="btn btn-blue-standard"
-                ng-click="copySidebar()"
-            >Pobierz wycenę
-            </a>
-          </div>
-          <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2">
-            <a class="btn btn-blue-reversed"
-               href="http://www.kuzniatresci.pl/wp-content/uploads/2017/02/Kuzniatresci-brief.pdf">Pobierz brief</a>
-          </div>
-          <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2">
-            <button class="btn btn-blue-standard">Dodaj załącznik</button>
-          </div>
-          <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2">
-            <input
-                class="btn btn-orange-reversed"
-                value="Wyślij"
-                type="submit">
-          </div>
-
-          </form>
-        </div>
-
-      </section>
-
-    </div><!-- col-md-9 -->
-    
       <div ng-include="'detailedInfo.html'"></div>
-</div>
-<script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.2/angular-scroll.min.js"></script>
-<script src="main.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.2/angular-scroll.min.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>
