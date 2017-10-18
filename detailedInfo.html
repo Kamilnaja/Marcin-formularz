@@ -1,74 +1,85 @@
-
-  <div class="big-info" ng-show=sidebarBigInfo>
-    <h2>{{bigInfoName}}</h2>
-    <h3>{{bigInfoTitle}}</h3>
-    <ul>
-      <li ng-repeat="item in bigInfoList">
-        {{item}}
-      </li>
-    </ul>
-    <div class="spacer"></div>
-    <a href="#wycena" class="btn btn-blue-standard" ng-click="resetSelectedValues()">
-      Wiadomość
-    </a>
-  </div>
-  <div class="detailed-info" ng-show=sidebarDetails>
-    <h3 class="centered">Podsumowanie</h3>
-    <h4>Rodzaj tekstów</h4>
-    <p class="value">
-      {{selectedCategory}}
-    </p>
-    <h4>Parametry szczegółowe</h4>
-
-    <h5>Ilość znaków w jednym tekście</h5>
-    <div class="value">
-      {{letterCount}}
+<div class="col-md-3 sidebar">
+    <div
+        class="big-info"
+        ng-show=sidebarBigInfo
+    >
+      <h2>{{bigInfoName}}</h2>
+      <h3>{{bigInfoTitle}}</h3>
+      <ul>
+        <li ng-repeat="item in bigInfoList">
+          {{item}}
+        </li>
+      </ul>
+      <div class="spacer"></div>
+      <a
+          href="#wycena"
+          class="btn btn-blue-standard"
+          ng-click="resetSelectedValues()"
+      >
+        Wiadomość
+      </a>
     </div>
+<div
+class="detailed-info"
+ng-show=sidebarDetails
+>
+<h3 class="centered">Podsumowanie</h3>
+<h4>Rodzaj tekstów</h4>
+<p class="value">
+{{selectedCategory}}
+</p>
+<h4>Parametry szczegółowe</h4>
 
-    <h5>Skomplikowanie tematyki</h5>
-    <div class="value">
-      {{hardness.selected.name}}
-    </div>
+<h5>Ilość znaków w jednym tekście</h5>
+<div class="value">
+{{letterCount}}
+</div>
 
-    <h5>Dostarczone materiały</h5>
-    <div class="value">
-      {{materials.selected.name}}
-    </div>
+<h5>Skomplikowanie tematyki</h5>
+<div class="value">
+{{hardness.selected.name}}
+</div>
 
-    <h5>Czas realizacji</h5>
-    <div class="value">
-      {{time.selected.name}}
-    </div>
+<h5>Dostarczone materiały</h5>
+<div class="value">
+{{materials.selected.name}}
+</div>
 
-    <h5>Branża</h5>
-    <div class="value">
-      {{trades.selected.name}}
-    </div>
+<h5>Czas realizacji</h5>
+<div class="value">
+{{time.selected.name}}
+</div>
 
-    <h5>Ilość tekstów</h5>
-    <div class="value">
-      {{textCount}}
-    </div>
-    <p>
-      <b>
-        Zgadzam się na otrzymanie oferty profesjonalnej firmy SEO: </b> {{seo.selected.name}}
-    </p>
-    <h4>
-      <b>Stawka bazowa za 1000 znaków</b>
-    </h4>
-    <div class="value">
-      {{services.selected}}
-    </div>
-    <h4>
-      <b>Kwota rabatu</b>
-    </h4>
-    <div class="value">
-      <p ng-if="bonusNumber > 0">{{bonusNumber | currency: "PLN" }}</p>
-    </div>
+<h5>Branża</h5>
+<div class="value">
+{{trades.selected.name}}
+</div>
 
-    <h4 class="centered">Sugerowana wycena za zlecenie</h4>
-    <p class="centered">
-      <b>{{detailPrice | currency : "PLN" }}</b>
-    </p>
-    <button class="btn btn-blue-standard" ng-click="copySidebar()">Kopiuj do wiadomości
-    </button>
+<h5>Ilość tekstów</h5>
+<div class="value">
+{{textCount}}
+</div>
+<p><b>
+Zgadzam się na otrzymanie oferty profesjonalnej firmy SEO: </b> {{seo.selected.name}}
+</p>
+<h4><b>Stawka bazowa za 1000 znaków</b></h4>
+<div class="value">
+{{services.selected}}
+</div>
+<h4><b>Kwota rabatu</b></h4>
+<div class="value">
+<p ng-if="bonusNumber > 0">{{bonusNumber | currency: "PLN" }}</p>
+</div>
+
+<h4 class="centered">Sugerowana wycena za zlecenie</h4>
+<p class="centered">
+<b>{{detailPrice | currency : "PLN" }}</b>
+</p>
+<button
+  class="btn btn-blue-standard"
+  ng-click="copySidebar()"
+>Kopiuj do wiadomości
+</button>
+</div>
+</div>
+</div>

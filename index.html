@@ -232,27 +232,7 @@
       </section>
 
     </div><!-- col-md-9 -->
-    <div class="col-md-3 sidebar">
-      <div
-          class="big-info"
-          ng-show=sidebarBigInfo
-      >
-        <h2>{{bigInfoName}}</h2>
-        <h3>{{bigInfoTitle}}</h3>
-        <ul>
-          <li ng-repeat="item in bigInfoList">
-            {{item}}
-          </li>
-        </ul>
-        <div class="spacer"></div>
-        <a
-            href="#wycena"
-            class="btn btn-blue-standard"
-            ng-click="resetSelectedValues()"
-        >
-          Wiadomość
-        </a>
-      </div>
+    
       <div ng-include="'detailedInfo.html'"></div>
 </div>
 <script
