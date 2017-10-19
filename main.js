@@ -1,8 +1,13 @@
-angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
-  .controller('FormAppController', function ($scope, $document) {
+var myApp = angular.module('FormApp',  [])
 
-    $scope.letterCount = 0;
-    $scope.textCount = 0;
+myApp.factory('Data', function(){
+  return { letterCount: 10 };
+});
+
+  myApp.controller('FormAppController', function ($scope, $document, Data) {
+    $scope.Data = Data;
+    console.log($scope.Data.letterCount);
+    $scope.textCount = "";
 
     $scope.showServices = true;
     $scope.hardness = [
@@ -144,7 +149,6 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
       $('.text-variable-item').addClass('non-selected');
       //przenieś do sekcji poniżej
       var target1 = angular.element(document.getElementById("parameters"));
-      $document.scrollToElement(target1);
     };
 
     //ustala cenę bazową po kliknięciu w item
@@ -173,7 +177,7 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
       $scope.materials.selected = "";
       $scope.time.selected = "";
       $scope.trades.selected = "";
-      $scope.letterCount = 1000;
+      $scope.Data.letterCount = 1000;
       $scope.textCount = 1;
     };
 
@@ -214,18 +218,18 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
 
     $scope.scrollToEnd = function () {
       var target2 = angular.element(document.getElementById("send-form"));
-      $document.scrollToElement(target2);
+      // $document.scrollToElement(target2);
     };
     $scope.countAll = function () {
-      //fucking awesome immortal tests for this app - do not remove
-      // console.log ( "serwis " + $scope.services.selected);
-      // console.log("trudnośc "  + $scope.hardness.selected.counter);
-      // console.log("materiały" + $scope.materials.selected.counter);
-      // console.log(    "textbonus" +    $scope.textBonus)
-      // console.log("bonsu za czas" +  $scope.time.selected.counter);
-      // console.log("trade" + $scope.trades.selected.counter );
-      // console.log("litery " + $scope.letterCount / 1000);
-      // console.log("ile tekstów " + $scope.textCount);
+      // fucking awesome immortal tests for this app - do not remove
+      console.log ( "serwis " + $scope.services.selected);
+      console.log("trudnośc "  + $scope.hardness.selected.counter);
+      console.log("materiały" + $scope.materials.selected.counter);
+      console.log(    "textbonus" +    $scope.textBonus)
+      console.log("bonsu za czas" +  $scope.time.selected.counter);
+      console.log("trade" + $scope.trades.selected.counter );
+      console.log("litery " + $scope.Data.letterCount / 1000);
+      console.log("ile tekstów " + $scope.textCount);
       if (
         $scope.hardness.selected &&
         $scope.materials.selected &&
@@ -242,7 +246,7 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
         $scope.materials.selected.counter *
         $scope.textBonus *
         $scope.trades.selected.counter *
-        ($scope.letterCount / 1000) *
+        ($scope.Data.letterCount / 1000) *
         $scope.textCount;
       //oblicz bonus za ilośc tekstów
       $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
@@ -266,7 +270,17 @@ angular.module('FormApp', ['duScroll']).value('duScrollDuration', 5000)
     };
 
 
-  });
+  }
+
+)
+
+.controller('detailedInfoController', function ($scope, Data) {
+// todo - odbieraj dane z drugiego widoku
+$scope.letterCount = Data;
+}
+
+
+);
 $(document).ready(function () {
   $('.hover').hover(function () {
     $(this).addClass('flip');

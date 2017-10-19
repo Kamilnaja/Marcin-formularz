@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en" ng-app="FormApp">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -29,7 +28,7 @@
               </div>
             </div>
           </section>
-          <section class="parameters" id="parameters" du-smooth-scroll>
+          <section class="parameters" id="parameters">
             <form name="setParameters">
               <div class="row">
                 <div class="col-md-12">
@@ -42,7 +41,7 @@
               <div class="form-group" ng-show=showParameters>
                 <div class="col-md-4">
                   <p>Ilość znaków w jednym tekście</p>
-                  <input type="number" placeholder="1000" min="0" step="100" ng-model="letterCount" ng-change="countAll()">
+                  <input type="text" placeholder="1000" min="0" step="100" ng-model="Data.letterCount" ng-change="countAll()">
                 </div>
                 <div class="col-md-4">
                   <p>
