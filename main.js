@@ -221,15 +221,15 @@ myApp.factory('Data', function(){
       // $document.scrollToElement(target2);
     };
     $scope.countAll = function () {
-      // fucking awesome immortal tests for this app - do not remove
-      console.log ( "serwis " + $scope.services.selected);
-      console.log("trudnośc "  + $scope.hardness.selected.counter);
-      console.log("materiały" + $scope.materials.selected.counter);
-      console.log(    "textbonus" +    $scope.textBonus)
-      console.log("bonsu za czas" +  $scope.time.selected.counter);
-      console.log("trade" + $scope.trades.selected.counter );
-      console.log("litery " + $scope.Data.letterCount / 1000);
-      console.log("ile tekstów " + $scope.textCount);
+      // super awesome immortal tests for this app - do not remove
+      // console.log ( "serwis " + $scope.services.selected);
+      // console.log("trudnośc "  + $scope.hardness.selected.counter);
+      // console.log("materiały" + $scope.materials.selected.counter);
+      // console.log(    "textbonus" +    $scope.textBonus)
+      // console.log("bonsu za czas" +  $scope.time.selected.counter);
+      // console.log("trade" + $scope.trades.selected.counter );
+      // console.log("litery " + $scope.Data.letterCount / 1000);
+      // console.log("ile tekstów " + $scope.textCount);
       if (
         $scope.hardness.selected &&
         $scope.materials.selected &&
@@ -276,7 +276,8 @@ myApp.factory('Data', function(){
 
 .controller('detailedInfoController', function ($scope, Data) {
 // todo - odbieraj dane z drugiego widoku
-$scope.letterCount = Data;
+  $scope.Data = Data;
+  console.log(Data);
 }
 
 
