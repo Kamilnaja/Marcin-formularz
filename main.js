@@ -2,12 +2,16 @@ angular.module('FormApp', []);
 
 angular.module('FormApp')
  .factory('Data', function () {
-   return {letterCount: 1000}
+   return {
+     letterCount: 1000,
+     hardness: '',
+     textCount: 1
+
+    }
  }) 
   .controller('FormAppController', function ($scope, $document, Data) {
     $scope.Data = Data;
-    console.log($scope.Data.letterCount);
-    $scope.textCount = "";
+    console.log(Data);
 
     $scope.showServices = true;
     $scope.hardness = [
@@ -173,27 +177,26 @@ angular.module('FormApp')
 
     $scope.resetSelectedValues = function () {
       $scope.textInfo = "";
-      $scope.hardness.selected = "";
+      $scope.Data.hardness.selected = "";
       $scope.materials.selected = "";
       $scope.time.selected = "";
       $scope.trades.selected = "";
       $scope.Data.letterCount = 1000;
-      $scope.textCount = 1;
+      $scope.Data.textCount = 1;
     };
 
     $scope.monthlyTextNumberAwesomebonus = 1;
     $scope.yearlyTextNumberAwesomebonus = 1;
 
-    $scope.textCount = 1;
     $scope.textBonus = 1.2;
     $scope.countTextBonus = function () {
-      if ($scope.textCount < 5) {
+      if ($scope.Data.textCount < 5) {
         $scope.textBonus = 1.2;
       } else if
-      (6 > $scope.textCount && $scope.textCount <= 10) {
+      (6 > $scope.Data.textCount && $scope.textCount <= 10) {
         $scope.textBonus = 0.9;
       }
-      else if ($scope.textCount > 10) {
+      else if ($scope.Data.textCount > 10) {
         $scope.textBonus = 0.8;
       }
     };
@@ -247,7 +250,7 @@ angular.module('FormApp')
         $scope.textBonus *
         $scope.trades.selected.counter *
         ($scope.Data.letterCount / 1000) *
-        $scope.textCount;
+        $scope.Data.textCount;
       //oblicz bonus za ilośc tekstów
       $scope.bonusNumber = $scope.detailPrice - ($scope.detailPrice * $scope.textBonus);
       if (isNaN($scope.detailPrice)) {
@@ -264,14 +267,11 @@ angular.module('FormApp')
         "  \n Dostarczone materiały: " + $scope.materials.selected.name +
         "  \n Czas realizacji: " + $scope.time.selected.name +
         "  \n Branża: " + $scope.trades.selected.counter +
-        "  \n Ilość tekstów razem: " + $scope.textCount +
+        "  \n Ilość tekstów razem: " + $scope.Data.textCount +
         "  \n Stawka bazowa za 1000 znaków: " + $scope.services.selected +
         "  \n Sugerowana wycena za zlecenie: " + $scope.detailPrice;
     };
-
-
   }
-
 )
 
 $(document).ready(function () {

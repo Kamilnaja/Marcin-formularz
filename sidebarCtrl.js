@@ -1,4 +1,4 @@
 angular.module('FormApp')
-  .controller('detailedInfoController', ['$scope', '$http', function ($scope, Data) {
+  .controller('detailedInfoController', function ($scope, Data) {
     $scope.Data = Data;
-  }])
+  })
