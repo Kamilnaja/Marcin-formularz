@@ -1,10 +1,10 @@
-var myApp = angular.module('FormApp',  [])
+angular.module('FormApp', []);
 
-myApp.factory('Data', function(){
-  return { letterCount: 10 };
-});
-
-  myApp.controller('FormAppController', function ($scope, $document, Data) {
+angular.module('FormApp')
+ .factory('Data', function () {
+   return {letterCount: 1000}
+ }) 
+  .controller('FormAppController', function ($scope, $document, Data) {
     $scope.Data = Data;
     console.log($scope.Data.letterCount);
     $scope.textCount = "";
@@ -274,14 +274,6 @@ myApp.factory('Data', function(){
 
 )
 
-.controller('detailedInfoController', function ($scope, Data) {
-// todo - odbieraj dane z drugiego widoku
-  $scope.Data = Data;
-  console.log(Data);
-}
-
-
-);
 $(document).ready(function () {
   $('.hover').hover(function () {
     $(this).addClass('flip');
