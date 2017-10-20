@@ -6,20 +6,19 @@ angular.module('FormApp')
      letterCount: 1000,
      hardness: '',
      textCount: 1
-
     }
  }) 
-  .controller('FormAppController', function ($scope, $document, Data) {
+  .controller('FormAppController', function ($scope, $document, $http, Data) {
+    $http.get('/hardness.js')
+    .then(function(response) {
+      $scope.hardness = response;
+    })
+    
     $scope.Data = Data;
-    console.log(Data);
-
     $scope.showServices = true;
-    $scope.hardness = [
-      {id: 1, name: "łatwy", counter: 1},
-      {id: 2, name: "średni", counter: 1.5},
-      {id: 3, name: "trudny", counter: 1.75}
-    ];
-    $scope.hardness.selected = "";
+
+    
+    // $scope.hardness.selected = "";
 
     $scope.time = [
       {id: 1, name: "standardowy (3 - 7 dni)", counter: 1, biggerPrice: "nie"},

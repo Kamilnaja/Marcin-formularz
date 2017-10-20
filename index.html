@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="style/stylesheets/screen.css">
 </head>
-
 <body>
   <div class="container">
     <div class="row">
@@ -47,7 +46,11 @@
                   <p>
                     Określ skomplikowanie tematyki
                   </p>
-                  <select required ng-model="hardness.selected" ng-options="x.name for x in hardness" ng-change="countAll()"></select>
+                  <select required 
+                    ng-model="hardness.selected" 
+                    ng-options="x.name for x in hardness.data.parameters" 
+                    ng-change="countAll()"
+                  ></select>
                 </div>
                 <div class=" col-md-4">
                   <p>
@@ -71,7 +74,7 @@
                   <select ng-model="seo.selected" ng-options="x.name for x in seo" ng-change="countAll()" required></select>
                 </div>
                 <div class="spacer"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"> 
                   <p>Ilość tekstów</p>
                   <input type="number" placeholder="1" min="1" ng-model="Data.textCount" ng-change="countAll(); countTextBonus();" required>
                 </div>
